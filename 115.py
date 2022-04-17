@@ -304,5 +304,447 @@
 #     print("Такого дня недели не существует")
 
 
-m = int(input("Введите номер месяца"))
+# m = int(input("Введите номер месяца"))
 
+# month = int(input("Введите месяц (цифрами): "))
+# if 1 <= month <= 2 or month == 12:
+#     print("Зима")
+# elif 3 <= month <= 5:
+#     print("Весна")
+# elif 6 <= month <= 8:
+#     print("Лето")
+# elif 9 <= month <= 11:
+#     print("Осень")
+# else:
+#     print("Ошибка ввода данных")
+#
+#
+# m = int(input("Введите номер месяца: "))
+# if 1 <= m <= 12:
+#     print("Время года - ", end="")
+#     if 1 <= m <= 2 or m == 12:
+#         print("Зима")
+#     if 3 <= m <= 5:
+#         print("Весна")
+#     if 6 <= m <= 8:
+#         print("Лето")
+#     if 9 <= m <= 11:
+#         print("Осень")
+# else:
+#     print("Такого года не существует")
+
+# m = int(input("Введите номер месяца (Цифрами): "))
+# if (m == 12) or m == 1 or m == 2:
+#     print("Зима - ", end="")
+#     if m == 12:
+#         print("Декабрь")
+#     if m == 1:
+#         print("Январь")
+#     if m == 2:
+#         print("Февраль")
+#
+# elif m == 3 or m == 4 or m == 5:
+#     print("Весна - ", end="")
+#     if m == 3:
+#         print("Март")
+#     if m == 4:
+#         print("Апрель")
+#     if m == 5:
+#         print("Май")
+# elif m == 6 or m == 7 or m == 8:
+#     print("Лето - ", end="")
+#     if m == 6:
+#         print("Июнь")
+#     if m == 7:
+#         print("Июль")
+#     if m == 8:
+#         print("Август")
+# elif m == 9 or m == 10 or m == 11:
+#     print("Осень - ", end="")
+#     if m == 9:
+#         print("Сентябрь")
+#     if m == 10:
+#         print("Октябрь")
+#     if m == 11:
+#         print("Ноябрь")
+# else:
+#     print("Такого меяца не существует")
+
+# a, b = 50, 20
+# minim = a if a < b else b
+# print(minim)
+# print("a == b" if a == b else "a > b" if a > b else "b > a")
+# if a == b:
+#     print("a == b")
+# elif a > b:
+#     print("a > b")
+# else:
+#     print("b > a")
+
+# a = 5
+# b = 0
+# print(a / b)
+
+# try-except
+# try:
+#     n = int(input("Введите делимое: "))
+#     m = int(input("Введите делитель: "))
+#     print(n / m)
+# except (ValueError, ZeroDivisionError):
+#     print("Нельзя вводить строки")
+#     print("Нельзя делить на ноль")
+# else:  # когда в блоке try не возникло исключения
+#     print("Все нормально. Вы ввели числа", n, "и", m)
+# finally:  # выполнится в любом случае
+#     print("Конец программы")
+#
+# print("Код далее")
+
+# n = input("Введите первое число: ")
+# m = input("Введите второе число: ")
+# first_num = input("Введите первое число: ")
+# second_num = input("Введите второе число: ")
+# try:
+#     first_num = int(first_num)
+#     second_num = int(second_num)
+# except ValueError:
+#     first_num = str(first_num)
+# finally:
+#     print(first_num + second_num)
+
+# Циклы
+# while - цикл с неопределенным количесвтвом итераций
+# for - цикл с заданным количеством итераций
+
+# Итерация - один шаг цикла
+
+# while условие:
+#     блок инструкций
+
+# i = 0  # переменная счетчик
+# while i < 5:  # условие выхода из цикла
+#     print("i =", i)
+#     i += 1  # i = i + 1  # изменение счетчика - шаг цикла
+# print("Код далее")
+#
+# j = 1000
+# while j > 0:
+#     print(j, end=" ")
+#     j //= 10
+
+
+# n = 0
+# while n <= 20:
+#     print("n =", n)
+#     n += 2
+# i = 1
+# while i <= 20:
+#     if i % 2 == 0:
+#         print("i =", i)
+#     i += 1
+
+# n = int(input("Укажите количество символов: "))
+# i = 0
+# while i < n:
+#     print("*")
+#     i += 1
+
+# while n > 0:
+#     print("*", end="")
+#     n -= 1
+
+# a = int(input("Введите начало диапазона: "))
+# b = int(input("Введите конец диапазона: "))
+
+
+# total = 0
+# a = int(input("Введите начало диапазона: "))
+# b = int(input("Введите конец диапазона: "))
+#
+# while a <= b:
+#     if a % 2:
+#         total += a  # total = total + a
+#         print(a, end=" ")
+#     a += 1
+# print("\nСумма целых нечетных чисел: ", total)
+
+# Необходимо ввести целое число и проверить его на четность
+
+# n = input("Введите целое число: ")
+#
+# while type(n) != int:
+#     try:
+#         n = int(n)
+#     except ValueError:
+#         print("Число не целое!")
+#         n = input("Введите целое число: ")
+#
+#
+# if n % 2 == 0:
+#     print("Четное")
+# else:
+#     print("Нечетное")
+
+
+# break - завершает цикл
+# continue - завершает текущую итерацию цикла
+
+# i = 0
+# while i < 10:
+#     if i == 3:
+#         i += 1
+#         continue
+#     print(i, end=" ")
+#     if i == 5:
+#         print("i =", i)
+#         break
+#     i += 1
+# print("\nЦикл завершен!")
+
+# i = 0
+# while True:
+#     print(i)
+#     if i == 5:
+#         break
+#     i += 1
+
+
+# while True:
+#     n = int(input("Введите положительное число: "))
+#     if n < 0:
+#         break
+
+# result = 1
+# while True:
+#     n = int(input("Введите число: "))
+#     if n == 0:
+#         break
+#     result *= n
+# print("Результат:", result)
+
+# i = 0
+# while i < 10:
+#     if i == 5:
+#         break
+#     print(i)
+#     i += 1
+# else:
+#     print("Цикл окончен, i =", i)
+
+
+# i = 1
+# while i < 5:
+#     print("Внешний цикл: i =", i)
+#     j = 1
+#     while j < 4:
+#         print("\tВнутренний цикл: j =", j)
+#         j += 1
+#     i += 1
+
+# i = 1
+# while i < 10:
+#     j = 1
+#     while j < 10:
+#         print(i, "*", j, "=", i * j, "\t\t", end="")
+#         j += 1
+#     print()
+#     i += 1
+
+
+# i = 0
+# while i < 5:
+#     j = 0
+#     while j < 16:
+#         if j % 2 == 0:
+#             print("+", end="")
+#         else:
+#             print("-", end="")
+#         j += 1
+#     print()
+#     i += 1
+
+
+# for element in collection:
+#      тело цикла
+
+
+# for i in 'Hello!':
+#     print(i)
+
+# i = 1
+# for color in 'red', 'orange', 'yellow', 'green', 'blue':
+#     print(i, "color:", color)
+#     i += 1
+
+
+# print(range(12))
+
+# range(start, stop, step)
+# range(9) - от 0 до 9
+# range(2, 9) - от 2 до 9
+
+# for i in range(0, 100, 10):
+#     print(i, end=" ")
+#
+# print()
+#
+# i = 100
+# while i > 0:
+#     print(i, end=" ")
+#     i -= 10
+
+
+# a = int(input("Введите целое число: "))
+# for i in range(1, a):  # от 1 до 9
+#     if a % i == 0:
+#         print(i, end=" ")
+
+
+# for i in range(10, 100):
+#     if i // 10 == i % 10:
+#         print(i, end=" ")
+
+
+# for i in range(3):
+#     print(i)
+#     if i == 1:
+#         break
+# else:
+#     print("done")
+
+
+# for i in range(3):
+#     print("+++")
+#     for j in range(2):
+#         print("-----")
+
+# w = int(input("Введите ширина прямоугольника: "))
+# h = int(input("Введите высоту прямоугольника: "))
+#
+# for i in range(h):
+#     for j in range(w):
+#         if i == 0 or i == h - 1 or j == 0 or j == w - 1:
+#             print("*", end="")
+#         else:
+#             print(" ", end="")
+#     print()
+
+
+# w = int(input("Введите ширину прямоугольника: "))
+# h = int(input("Введите высоту прямоугольника: "))
+# for i in range(h):
+#     for j in range(w):
+#         if i in range(1, h - 1) and j in range(1, w - 1):
+#             print(" ", end="")
+#         else:
+#             print("*", end="")
+#     print()
+
+
+# a = [i * 2 for i in "Hello!"]
+# print(a)
+#
+# for i in 'Hello!':
+#     print(i * 2)
+
+
+# Список (list) - упорядоченная изменяемая коллекция объектов произвольных типов данных
+
+# nums = [8, 3, 9, 4, 1]
+# print(nums)
+# print(type(nums))
+#
+# print(nums[0])
+# print(nums[2])
+#
+# print(nums[-2])
+#
+# nums[2] = 256
+# print(nums)
+# nums[3] += 100
+# print(nums)
+#
+# print("Длина списка:", len(nums))
+
+# s = ["Hello"]
+# print(s)
+# print(type(s))
+#
+# s1 = list("Hello")
+# print(s1)
+# print(type(s1))
+
+# n = [5, 2] * 6
+# print(n)
+# n1 = [2, 4, 6, 8]
+# n = list(range(2, 10, 2))
+# print(n)
+# print(n1)
+# if n == n1:
+#     print("Списки равны")
+# else:
+#     print("Списки разные")
+
+# выражение for переменная in последовательность]
+# n = 5
+# a = [i ** 2 for i in range(1, n + 1)]
+# print(a)
+#
+# c = [i * 3 for i in "list"]
+# print(c)
+
+
+# a = [1, 2, 3]
+# b = [4, 5]
+# c = a + b
+# print(c)
+# print(c * 2)
+
+# a = [0] * int(input("Введите количество элементов списка: "))
+# print(a)
+# for i in range(len(a)):
+#     a[i] = int(input("-> "))
+# print(a)
+# a = [7, 8, 9, 4]
+#
+# a[4] = 5
+# print(a)
+
+# a = [input("-> ") for i in range(int(input("Введите количество элементов списка: ")))]
+# print(a)
+
+# a = [int(input("-> ")) for i in range(int(input("Введите количество элементов цикла: ")))]
+# total = 0
+# for i in range(len(a)):
+#     if a[i] < 0:
+#         total += a[i]
+# print("Сумма отрицательных элементов:", total)
+
+# a = [1, 2, 3, 4]
+# print(a)
+#
+# for i in range(len(a)):
+#     print("индекс: ", i, ", значение: ", a[i], sep="")
+#
+# for i in a:
+#     print(i, end=" ")
+
+
+# a = [int(input("->")) for i in range(int(input("Введите количество элементов цикла: ")))]
+# lenght = len(a)
+# total = 0
+# for i in range(len(a)):
+#     if a[i] == 0:
+#         lenght -= 1
+#     else:
+#         total += a[i]
+# middle_diad = total / lenght
+# print("Среднее арифметическое:", middle_diad)
+
+a = [int(input("-> ")) for i in range(int(input("Введите количество элементов цикла: ")))]
+s = k = 0
+for i in range(len(a)):
+    s += a[i]
+    if a[i] != 0:
+        k += 1
+print("Среднее арифметическое:", s / k)
