@@ -741,10 +741,227 @@
 # middle_diad = total / lenght
 # print("Среднее арифметическое:", middle_diad)
 
-a = [int(input("-> ")) for i in range(int(input("Введите количество элементов цикла: ")))]
-s = k = 0
-for i in range(len(a)):
-    s += a[i]
-    if a[i] != 0:
-        k += 1
-print("Среднее арифметическое:", s / k)
+# a = [int(input("-> ")) for i in range(int(input("Введите количество элементов цикла: ")))]
+# s = k = 0
+# for i in range(len(a)):
+#     s += a[i]
+#     if a[i] != 0:
+#         k += 1
+# print("Среднее арифметическое:", s / k)
+
+# Срезы
+# список[start:stop:step]
+
+# s = [5, 9, 3, 7, 1, 8]
+# print(s[1:5:2])
+# print(s[:])
+# print(s[1::2])
+# print(s[::-1])
+# print(s[5:1:-1])
+# print(s[10:20])
+
+
+# s = [1, 2, 3, 4, 5, 6, 7]
+# # print(s[:])
+# # print(s[::-1])
+# # print(s[::2])
+# # print(s[1::2])
+# # print(s[:1])
+# # print(s[-1:])
+# # print(s[3:4])
+# # print(s[-3:])
+# # print(s[-3:1:-1])
+# # print(s[2:5])
+# # s[1:3] = [0, 0, 0, 0]
+# # print(s)
+# # s[1:2] = [20]
+# # print(s)
+# # s[2] = 200
+# # print(s)
+# # Методы списков
+# print(s)
+# s.append(99)  # добавляет элемент в конце списка
+# print(s)
+# s.extend([1, 2, 3])  # добавляет множество элементов в конце списка
+# print(s)
+# s.insert(1, 100)  # добавляет элемент в заданное место в списке
+# print(s)
+
+
+# s = []
+# n = int(input("Количество элементов списка: "))
+# for num in range(n):
+#     x = int(input("Введите число: "))
+#     s.append(x)
+# print(s)
+
+# s = []
+# n = int(input("Количество элементов: "))
+# for num in range(n):
+#     x = int(input("Введите число кратное 3: "))
+#     if x % 3 == 0:
+#         s.append(x)
+#     else:
+#         print(x, "не делится на 3 без остатка.")
+# print(s)
+
+# a = [5, 9, 2, 1, 4, 3, 2, 4]
+# b = [4, 2, 1, 3, 7]
+# c = []
+# for i in a:
+#     for j in b:
+#         if i in c:
+#             continue
+#         if i == j:
+#             c.append(i)
+#             break
+# print(c)
+
+# a = [1, 2, 3]
+# b = [11, 22, 33]
+# c = []
+#
+# i = 0
+# while i < len(a):
+#     c.append(a[i])
+#     c.append(b[i])
+#     i += 1
+#
+# print(c)
+
+# s = [1, 11, 2, 22, 3, 33, 2, 11]
+# # s[3:] = []
+# print(s)
+# # s.remove(11)  # удаляет заданный элемент из списка
+# # print(s)
+# # s.remove(4)  # ValueError
+# # print(s)
+# m = s.pop(3)  # pop() - удаляет последний элемент из списка, pop(3) - удаление по индексу
+# print(s)
+# print(m)
+# # s.clear()  # очищает список
+# del s[4]
+# print(s)
+
+# s = []
+# n = int(input("Количество элементов: "))
+# for num in range(n):
+#     x = int(input("Введите число: "))
+#     s.append(x)
+# index = int(input("Введите индекс: "))
+# # del s[index]
+# s.pop(index)
+# print(s)
+
+# s = [1, 11, 2, 22, 11, 3, 33, 2, 11]
+# num = s.count(11)  # возвращает количество заданных значений в списке
+# print(num)
+# ind = s.index(11, 2, -1)  # возвращает положение первого индекса с заданным значением
+# print(ind)
+# s.reverse()  # переворачивает элементы списка в обратном порядке
+# print(s)
+# s.sort()   # сортировка списка по возрстанию
+# s.sort(reverse=True)   # сортировка списка по убыванию
+# print(s)
+
+# s = ['Виталий', 'Сергей', 'Александр', 'Анна']
+# s.sort(key=len, reverse=True)
+# print(s)
+
+# Генерация случайных данных
+
+# import random
+#
+# print(random.random())
+#
+# print(random.randint(1, 9))
+# print(random.randrange(1, 11, 2))
+
+# import random as r
+#
+# print(r.randint(1, 9))
+# print(r.randrange(1, 11, 2))
+
+# from random import randint, randrange
+from random import *
+
+# print(randint(1, 9))
+# print(randrange(1, 11, 2))
+
+# city = ['Москва', 'Новосибирск', 'Воронеж', 'Сочи', 'Екатеринбург']
+# print(choice(city))
+# print(choices(city, k=3))
+#
+# s = [55, 66, 77, 88, 99]
+# print(choice(s))
+# print(choices(s, k=2))
+# shuffle(s)
+# print(s)
+#
+# print(uniform(10.5, 25.5))
+# print(round(uniform(10.5, 25.5), 2))
+
+
+# mas = [randint(0, 100) for i in range(10)]
+# print(mas)
+
+# Функции агрегирования
+# lst = [5, 3, 2, 4, 1]
+# print("Длина списка:", len(lst))
+# print("Минимальное значение:", min(lst))
+# print("Максимальное значение:", max(lst))
+# print("Сумма:", sum(lst))
+#
+# print(min(6, 4))
+# print(min(['6a', '4a']))
+# print(max(5, 9))
+# print(len([5, 9]))
+# print(sum([5, 2]))
+
+
+# mas = [randint(0, 100) for i in range(10)]
+# print(mas)
+# m = max(mas)
+# print(m)
+# mas.remove(m)
+# mas.insert(0, m)
+# print(mas)
+
+# lst = [randint(0, 100) for i in range(10)]
+# print(lst)
+# m = min(lst)
+# print(m)
+# # minimum_index = lst.index(m)
+# minimum_index = lst.index(min(lst))
+# del lst[0:minimum_index]
+# print(lst)
+
+# x = list('1a2b5c4d')
+# print(x)
+# print('a' in x)
+# print('e' in x)
+#
+# print('a' not in x)
+# print('e' not in x)
+#
+# lst = []
+# print(bool(lst))
+# # if len(lst) == 0:
+# if not lst:
+#     print("Список пустой")
+
+import math
+
+num1 = math.sqrt(2)
+num2 = math.ceil(2.18)
+num3 = math.floor(2.99)
+
+print(round(2.18))
+print(num1)
+print(num2)
+print(num3)
+print(math.pi)
+print(round(math.pi, 2))
+
+radius = 4
+print(math.pi * (radius ** 2))
