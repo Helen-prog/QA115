@@ -883,7 +883,7 @@
 # print(r.randrange(1, 11, 2))
 
 # from random import randint, randrange
-from random import *
+
 
 # print(randint(1, 9))
 # print(randrange(1, 11, 2))
@@ -950,18 +950,495 @@ from random import *
 # if not lst:
 #     print("Список пустой")
 
-import math
+# import math
+#
+# num1 = math.sqrt(2)
+# num2 = math.ceil(2.18)
+# num3 = math.floor(2.99)
+#
+# print(round(2.18))
+# print(num1)
+# print(num2)
+# print(num3)
+# print(math.pi)
+# print(round(math.pi, 2))
+#
+# radius = 4
+# print(math.pi * (radius ** 2))
 
-num1 = math.sqrt(2)
-num2 = math.ceil(2.18)
-num3 = math.floor(2.99)
+# import time
+# import locale
+# locale.setlocale(locale.LC_ALL, 'ru')
+#
+# seconds = time.time()
+# print("Секунды с начала эпохи:", seconds)
+#
+# locale_time = time.ctime()
+# print("Местное времы:", locale_time)
+#
+# res = time.localtime(seconds)
+# print(res)
+# print(res.tm_year)
+#
+# print("Сегодня: ", time.strftime("%B %d, %Y"))
+# # print(time.strftime("%d/%m/%Y, %H:%M:%S", time.localtime(4545634645)))
 
-print(round(2.18))
-print(num1)
-print(num2)
-print(num3)
-print(math.pi)
-print(round(math.pi, 2))
 
-radius = 4
-print(math.pi * (radius ** 2))
+# Функции
+
+
+# def hello(name, word):  # аргументы
+#     print("Hello, ", name, ". Say ", word, sep="")
+#
+#
+# hello("Irina", 'hi')  # парметры
+# hello("Ivan", 'hello')
+
+# def get_sum(a, b):
+#     print(a + b)
+#
+#
+# x = 1
+# y = 7
+# get_sum(x, y)
+# n = 5
+# m = 7
+# get_sum(n, m)
+# get_sum(2, 5)
+# get_sum("abc", 'def')
+
+
+# def symbol(count, a, b):
+#     for i in range(count):
+#         if i % 2 == 0:
+#             print(a, end="")
+#         else:
+#             print(b, end="")
+#     print()
+#
+#
+# symbol(9, "+", '-')
+# symbol(7, 'X', '0')
+
+# def line(lenght, first, second):
+#     flag = 0
+#     for i in range(lenght):
+#         if flag == 0:
+#             print(first, end="")
+#             flag = 1
+#         else:
+#             print(second, end="")
+#             flag = 0
+#     print()
+#
+#
+# line(5, "+", "-")
+# line(12, "X", "0")
+
+# def get_sum(a):
+#     print("Сумма:")
+#     return a
+#
+#
+# x = 'a'
+# y = 'b'
+# res = get_sum([1, 2, 3, 4, 6])
+# print(res)
+# print(get_sum(5, 7))
+
+
+# def maximum(one, two):
+#     if one > two:
+#         return one
+#     else:
+#         return two
+#
+#
+# m = maximum(9, 16)
+# print(m)
+
+
+# def diad(x, y):
+#     if x > y:
+#         return x - y
+#     else:
+#         return x + y
+#
+#
+# a = int(input("a = "))
+# b = int(input("b = "))
+# print("Результат:", diad(a, b))
+
+
+# def cub(a):
+#     return a * a * a
+#
+#
+# for i in range(1, 11):
+#     print(i, "в кубе =", cub(i))
+
+# def change(lst):
+#     last = lst.pop()
+#     first = lst.pop(0)
+#     lst.append(first)
+#     lst.insert(0, last)
+#     return lst
+# def change(lst):
+#     lst[0], lst[-1] = lst[-1], lst[0]
+#     return lst
+#
+#
+# print(change([1, 2, 3]))
+# print(change([9, 12, 33, 54, 105]))
+# print(change(['с', 'л', 'о', 'н']))
+
+
+# def is_greater(x, y):
+#     if x > y:
+#         return True
+#     else:
+#         return False
+#
+#
+# print(is_greater(10, 5))
+# print(is_greater(10, 15))
+
+# def check_password(password):
+#     has_upper = False
+#     has_lower = False
+#     has_num = False
+#
+#     for ch in password:
+#         if 'A' <= ch <= "Z":
+#             has_upper = True
+#         elif 'a' <= ch <= 'z':
+#             has_lower = True
+#         elif "0" <= ch <= "9":
+#             has_num = True
+#
+#     if has_upper and has_lower and has_num and len(password) >= 8:
+#         return True
+#     return False
+#
+#
+# p = input("Введите пароль: ")  # qW2
+# if check_password(p):
+#     print("Это надежный пароль")
+# else:
+#     print("Ненадежный пароль")
+
+# def get_sum(a, b, c=0, d=1):
+#     return a + b + c + d
+#
+#
+# print(get_sum(1, 5, 2, 7))
+# print(get_sum(1, 5, 2))
+# print(get_sum(1, 5))
+# m = 2
+# print(get_sum(1, 5, d=m))
+
+
+# def funct(count=20, sym='-'):
+#     for i in range(count):
+#         print(sym, end="")
+#     print()
+#
+#
+# funct(7, "+")
+# funct()
+# funct(10)
+# funct(sym="@")
+
+# def display_info(name, age):
+#     print("Name:", name, "\nAge:", age, "\n")
+#
+#
+# display_info("Ira", 23)
+# display_info(23, "Ira")
+# display_info(age=23, name="Ira")
+# display_info("Igor", age=23)
+
+# a = 5
+# b = 5
+# print(id(a))
+# print(id(b))
+# print(a == b)
+# print(a is b)
+# print()
+#
+# lst1 = [1, 2, 3]
+# lst2 = [1, 2, 3]
+# print(id(lst1))
+# print(id(lst2))
+# print(lst1 == lst2)
+# print(lst1 is lst2)
+
+# lst1 = [1, 2, 3]
+# print(id(lst1))
+# lst1.append(4)
+# lst1.pop(1)
+# print(lst1)
+# print(id(lst1))
+
+
+# Кортежи (tuple)
+
+# lst = [10, 20, 30]  # изменяемый тип данных
+# tpl = (10, 20, 30)  # неизменяемый тип данных
+#
+# print(lst.__sizeof__())
+# print(tpl.__sizeof__())
+
+
+# a = (1,)
+# print(a)
+# print(type(a))
+# b = tuple((1,))
+# print(b)
+# print(type(b))
+
+# t = tuple('hello')
+# print(t)
+# print(t[1])
+# print(t[1:3])
+
+# t[1] = 't'
+
+# s = tuple(int(input('-> ')) for i in range(3))
+# print(s)
+
+# s = input("Введите слово: ")
+# a = tuple(s)
+# print(a)
+
+# from random import randint
+#
+# mas = [randint(0, 100) for i in range(10)]
+# print(mas)
+# tpl = tuple(mas)
+# print(tpl)
+#
+# print(tuple(randint(0, 100) for j in range(10)))
+
+# print(tuple(2 ** i for i in range(1, 13)))
+
+# t1 = tuple('hello')
+# t2 = tuple(' world')
+# # print(t1)
+# # print(t2)
+# t3 = t1 + t2
+# print(t3)
+# # print(len(t3))
+# # print(t3.count('l'))
+# # print(t3.count('a'))
+# # print(t3.index('l'))
+# # if 'r' in t3:
+# #     print(t3.index('r'))
+# # else:
+# #     print("Такого символа нет")
+# for i in t3:
+#     print(i, end=" ")
+
+# def slicer(tpl, el):
+#     if el in tpl:
+#         if tpl.count(el) > 1:
+#             first = tpl.index(el)
+#             second = tpl.index(el, first + 1) + 1
+#             return tpl[first:second]
+#         else:
+#             return tpl[tpl.index(el):]
+#     else:
+#         return ()
+#
+#
+# print(slicer((1, 2, 3), 8))
+# print(slicer((1, 8, 3, 4, 8, 8, 9, 2), 8))
+# print(slicer((1, 2, 8, 5, 1, 2, 9), 8))
+
+# from random import randint
+#
+#
+# def fill_corteg(diap_begin, diap_end):
+#     return tuple(randint(diap_begin, diap_end) for i in range(10))
+#
+#
+# first_corteg = fill_corteg(0, 5)
+# second_corteg = fill_corteg(-5, 0)
+# third_corteg = first_corteg + second_corteg
+# print(first_corteg)
+# print(second_corteg)
+# print(third_corteg)
+# print("0 =", third_corteg.count(0))
+
+# t = (10, 11, [1, 2, 3], [4, 5, 6], ['hello', 'world'])
+# print(t, id(t))
+# print(t[4][0])
+# t[4][0] = 'new'
+# t[4].append('hi')
+# print(t, id(t))
+
+# Распаковка кортежа
+# t = (1, 2, 3)
+# # x = t[0]
+# # y = t[1]
+# # z = t[2]
+# x, y, z = t
+# print(x, y, z)
+
+# def get_user():
+#     name = "Tom"
+#     age = 22
+#     is_married = False
+#     return name, age, is_married
+#
+#
+# user = get_user()
+# print(user)
+# name, age, married = user
+# print(name, age, married)
+# print(user[0])
+# print(user[1])
+# print(user[2])
+
+# a = (1, 8, 3, 4, 8, 8, 9, 2)
+# del a
+# print(a)
+
+
+# a = (1, 8, 3, 4, 8, 8, 9, 2)
+# print(a)
+# b = list(a)
+# print(b)
+# c = tuple(b)
+# print(c)
+
+# countries = (
+#     ("Германия", 80.2, (("Берлин", 3.326), ("Гамбург", 1.718))),
+#     ("Франция", 66, (("Париж", 2.2), ("Марсель", 1.6)))
+# )
+# print(countries)
+#
+# for country in countries:
+#     country_name, country_population, cities = country
+#     print("\nСтрана:", country_name, "население =", country_population)
+#     for city in cities:
+#         city_name, city_population = city
+#         print("\tГород:", city_name, 'население =', city_population)
+
+# Множество (set)
+
+# s = {'banana', 'apple', 'orange', 'banana', 'apple'}
+# print(type(s))
+# print(s)
+# print(len(s))
+
+# a = {1, 5}
+# print(a)
+# print(type(a))
+#
+# a = set('hello')
+# print(a)
+# print(type(a))
+
+# s = {x * x for x in range(10) if x % 2 == 0}
+# print(s)
+
+# def to_set(elem):
+#     s = set(elem)
+#     return s, len(s)
+#
+#
+# print(to_set('я обычная строка'))
+# print(to_set([4, 5, 4, 6, 2, 9, 11, 3, 4, 2]))
+
+# t = {'red', 'green', 'blue'}
+# print('green' not in t)
+# for i in t:
+#     print(i)
+
+# {результат for переменная in коллекция}
+# {результат for переменная in коллекция if условие}
+# {результат if условие else результат for переменная in коллекция}
+# {результат if условие else результат for переменная in коллекция if условие}
+
+# r = ['ab_1', 'ac_2', 'bc_1', 'bc_2']
+# # a = {i for i in r if 'a' not in i}
+# # a = {'A' + i[1:] if i[0] == 'a' else 'B' + i[1:] for i in r}
+# a = {'A' + i[1:] if i[0] == 'a' else 'B' + i[1:] for i in r if i[1] == 'c'}
+# print(a)
+
+# a = {0, 1, 2, 3}
+#
+# a.add(4)
+# print(a)
+#
+# users = {'Tom', 'Bob'}
+# users.add("Anna")
+# print(users)
+# # user = 'Tom'
+# # if user in users:
+# #     users.remove(user)
+# # users.discard('Alice')
+# # users.pop()
+# users.clear()
+# print(users)
+
+
+# a = {0, 1, 2, 3, 4}
+# b = {4, 3, 2, 1}
+# # c = a.union(b)
+# # c = a | b
+# # a |= b
+# # c = a & b
+# # a &= b
+# # c = a - b
+# # a -= b
+# c = a >= b
+# print(c)
+# print(a)
+
+# s1 = "Hello"
+# s2 = "How are you"
+# a = set(s1) & set(s2)
+# print("Общими буквами являются:", end=" ")
+# for i in a:
+#     print(i, end=" ")
+
+# first = set(input("Введите первую строку: "))
+# second = set(input("Введите первую строку: "))
+# comp = first - second
+# for i in comp:
+#     print(i)
+
+
+# s = frozenset([1, 5, 2, 3, 4, 5])
+# print(s)
+
+
+# Словарь (dict)
+
+# a = [1, 2, 3]
+# print(a[2])
+# d = {'one': 1, 'two': 2, 'three': 3, 'four': 2}
+# print(d['three'])
+# print(d)
+
+# d = {'one': "abc", 'two': 2}
+# print(d)
+# print(type(d))
+#
+# d1 = dict(one="one", two=2)
+# print(d1)
+# print(type(d1))
+
+
+# a = ((0, 14), (2, 3), (0, 2))
+# print(dict(a))
+
+# d = {'one': 1, 'two': 2, 'three': 3, 'four': 2}
+# print(d['two'])
+# d['two'] = 22 ** 2
+# print(d)
+
+d = {0: 'text', 'one': 45, (1, 2.3): 'кортеж', 42: [1, 2, 3], True: 1}
+print(d)
