@@ -1440,5 +1440,218 @@
 # d['two'] = 22 ** 2
 # print(d)
 
-d = {0: 'text', 'one': 45, (1, 2.3): 'кортеж', 42: [1, 2, 3], True: 1}
-print(d)
+# d = {0: 'text', 'one': 45, (1, 2.3): 'кортеж', 42: [1, 2, 3], True: 1}
+# print(d)
+# # print(d[42][1])
+# # del d[(1, 2.3)]
+# # print(d)
+# # print('one' in d)
+# # print(42 in d)
+# for key in d:
+#     print(key, "=", d[key])
+
+
+# d = {'x1': 2, 'x2': 3}
+# sumer = 1
+# if not d:
+#     sumer = False
+# else:
+#     for key in d:
+#         sumer *= d[key]
+#
+# print(sumer)
+
+# d = dict()
+# d[1] = input("-> ")
+# d[2] = input("-> ")
+# d[3] = input("-> ")
+# d[4] = input("-> ")
+# d = {i: input("-> ") for i in range(1, 15)}
+# print(d)
+# rem = int(input("Какой элемент исключить: "))  # 3
+# del d[rem]  # d[3]
+# print(d)
+
+
+# d = {0: 'text', 'one': 45, (1, 2.3): 'кортеж', 42: [1, 2, 3], True: 1}
+# print(len(d))
+
+# capitals = dict()
+#
+# capitals['Россия'] = 'Москва'
+# capitals['Италия'] = 'Рим'
+# capitals['Испания'] = 'Мадрид'
+#
+# countries = ['Россия', 'Италия', 'Франция', 'Испания']
+#
+# for country in countries:
+#     if country in capitals:
+#         print("Столица страны " + country + ": " + capitals[country])
+#     else:
+#         print("В базе нет страны с названием " + country)
+
+# goods = {
+#     '1': ['Core-i3-4330', 9, 4500],
+#     '2': ['Core i5-4670K', 3, 8500],
+#     '3': ['AMD FX-6300', 6, 3700],
+#     '4': ['Pentium G3220', 8, 2100],
+#     '5': ['Core i5-3450', 5, 6400]
+# }
+#
+# for i in goods:
+#     print(i, ") ", goods[i][0], " - ", goods[i][1], " шт. по ", goods[i][2], "руб", sep="")
+#
+# while True:
+#     n = input("№: ")
+#     if n != '0':
+#         kol = int(input("Количество: "))
+#         goods[n][1] = kol
+#         price = int(input("Цена: "))
+#         goods[n][2] = price
+#     else:
+#         break
+#
+# for i in goods:
+#     print(i, ") ", goods[i][0], " - ", goods[i][1], " шт. по ", goods[i][2], "руб", sep="")
+
+
+# d = {'a': 1, 'b': 2, 'c': 3}
+
+# d2 = d.copy()
+#
+# print(d)
+# print(d2)
+#
+# d['e'] = 7
+# d2['b'] = 5
+#
+# print(d)
+# print(d2)
+
+# print(d['e'])
+# value = d.get('b', 'FF')
+# print(value)
+
+# n = d.items()
+# print(n)
+# k = d.keys()
+# print(k)
+# v = d.values()
+# print(v)
+#
+# # for i, j in d.items():
+# #     print(i, "->", j)
+# a = tuple(d.values())
+# print(a)
+#
+# q = [('a', 1), ('b', 2), ('c', 3), ('b', 9)]
+# print(dict(q))
+
+# item = d.pop('b', 5)
+# item = d.popitem()
+# item = d.setdefault('e', 7)
+# print(item)
+# print(d)
+
+# d.update([('d', 7), ('b', 9)])
+# print(d)
+
+# x = {'a': 1, 'b': 2}
+# y = {'b': 3, 'c': 4}
+# # z = x.copy()
+# # print(z)
+# # z.update(y)
+# z = y | x
+# print(z)
+
+# d = {'name': 'Kelly', 'age': 25, 'salary': 8000, 'city': 'New York'}
+#
+# d['location'] = d.pop('city')
+#
+# print(d)
+
+# new_d = dict()
+# new_d['name'] = d.pop('name')
+# new_d['salary'] = d.pop('salary')
+#
+# print(d)
+# print(new_d)
+
+# a = {
+#     'first': {
+#         1: 'one',
+#         2: 'two',
+#         3: 'three',
+#     },
+#     'second': {
+#         4: 'four',
+#         5: 'five'
+#     }
+# }
+# print(a)
+# for x in a:
+#     print(x)
+#     for y in a[x]:
+#         print("\t", y, ": ", a[x][y], sep="")
+
+
+# a_dict = {'четыре': 4, "один": 1, 'два': 2, 'три': 3}
+# d = {k: v for k, v in a_dict.items() if v <= 2}
+# print(d)
+
+# s = "Hello"
+# b = {i: i * 3 for i in s}
+# print(b)
+#
+# print(list(b.items()))
+
+# a = ['one', 1, 2, 3, 'two', 10, 20, 'three', 15, 36, 60, 'four', -20]
+#
+# d = dict()
+# s = None
+#
+# for i in a:
+#     if type(i) == str:
+#         d[i] = []
+#         s = i
+#     else:
+#         d[s].append(i)
+# print(d)
+
+# zip()
+# d = dict(zip([1, 2, 3, 2], ['one', 'two', 'three', 'four']))
+# print(d)
+# a = list(zip([1, 2, 3, 2], ['one', 'two', 'three', 'four']))
+# print(a)
+
+# a = [1, 2, 3]
+# b = ['one', 'two', 'three']
+# # c = [4.0, 5.0, 6.0]
+# z = zip(a, b)
+# print(list(z))
+
+# d_one = {'name': 'Igor', 'last_name': 'Smith', 'job': 'Manager'}
+# d_two = {'name': 'Irina', 'last_name': 'Doe', 'job': 'Consultant'}
+#
+# for (k1, v1), (k2, v2) in zip(d_one.items(), d_two.items()):
+#     print(k1, "->", v1)
+#     print(k2, "->", v2)
+
+# p = [(2, 'two'), (1, 'one'), (3, 'three')]
+# a, b = zip(*p)  # распаковка последовательности
+# print("a =", a)
+# print("b =", b)
+#
+# d = list(zip(b, a))
+# print(d)
+# d.sort()
+# print(d)
+
+month = ['January', 'February', 'March']
+total_sales = [52000.00, 51000.0, 48000.00]
+prod_cost = [46800.00, 45900.00, 43200.00]
+
+for sales, costs, m in zip(total_sales, prod_cost, month):
+    profit = sales - costs
+    print("Общая прибыль в", m, "=", profit)
+    
