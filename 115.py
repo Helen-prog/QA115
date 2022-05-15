@@ -1647,11 +1647,384 @@
 # d.sort()
 # print(d)
 
-month = ['January', 'February', 'March']
-total_sales = [52000.00, 51000.0, 48000.00]
-prod_cost = [46800.00, 45900.00, 43200.00]
+# month = ['January', 'February', 'March']
+# total_sales = [52000.00, 51000.0, 48000.00]
+# prod_cost = [46800.00, 45900.00, 43200.00]
+#
+# for sales, costs, m in zip(total_sales, prod_cost, month):
+#     profit = sales - costs
+#     print("Общая прибыль в", m, "=", profit)
 
-for sales, costs, m in zip(total_sales, prod_cost, month):
-    profit = sales - costs
-    print("Общая прибыль в", m, "=", profit)
-    
+
+# data = ['red', 'green', 'blue']
+#
+# j = 1
+# for i in data:
+#     print(j, ") ", i, sep="")
+#     j += 1
+#
+# # for i in range(3):
+# #     print(i)
+# print()
+# for j, i in enumerate(data, 1):
+#     print(j, ") ", i, sep="")
+
+
+# a = [1, 2, 3]
+# b = [*a, 4, 5, 6]
+# print(b)
+# print(len(b))
+
+
+# def func(*args):
+#     return args
+#
+#
+# print(func(1))
+# print(func(1, 2, 3, 'abc'))
+# print(func())
+
+
+# def summa(*param):
+#     res = 0
+#     for n in param:
+#         res += n
+#     return res
+#
+#
+# print(summa(1, 2, 3, 4, 5, 6))
+# print(summa(3, 4, 5, 6))
+
+# def to_dict(*lst):
+#     return {i: i for i in lst}
+#
+#
+# print(to_dict(1, 2, 3, 4, 5, 6, 7, 8))
+# print(to_dict('grey', (2, 17), 3.11, -4))
+
+
+# def ch(*args):
+#     average = sum(args) / len(args)
+#     print("Среднее арифметическое:", average)
+#
+#     res = []
+#     for num in args:
+#         if num < average:
+#             res.append(num)
+#     return res
+#
+#
+# print(ch(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# print(ch(3, 6, 1, 9, 5))
+
+
+# def func(a, *args):
+#     return a, args
+#
+#
+# print(func(2))
+# print(func(2, 3, 4, 5, 'abc'))
+
+# def print_scores(student, *scores):
+#     print("Student Name", student)
+#     for i in scores:
+#         print(i)
+#
+#
+# print_scores("Jonathan", 100, 95, 88, 92, 99)
+# print_scores("Rick", 96, 99, 33)
+# print_scores("Bob", 3, 5)
+
+
+# def func(**kwargs):
+#     return kwargs
+#
+#
+# print(func(a=1, b=2, c=3))
+# print(func())
+# print(func(a='python'))
+
+# def info(**data):
+#     for k, v in data.items():
+#         print(k, 'is', v)
+#     print()
+#
+#
+# info(firstname='Irina', lastname='Sharma', age=22, phone=1234567890)
+# info(firstname='Igor', lastname='Wood', email="igor@gmail.com", country='Russia', age=25, phone=7895567890)
+
+
+# def db(**kwargs):
+#     my_dict.update(**kwargs)
+#
+#
+# my_dict = {'one': 'first'}
+# db(k1=22, k2=31, k3=11, k4=91)
+# db(name='Bob', age=31, weight=61, eyes_color='grey')
+# print(my_dict)
+
+
+# def func(a, d, *args, radius=0, **kwargs):
+#     print(args)
+#     return a, d, args, kwargs, radius
+#
+#
+# print(func(1, 2, 3, 4, 5, 6, b=4, c=9, radius=50))
+
+# x = {'a': 1, 'b': 2}
+# y = {'b': 3, 'c': 4}
+# print(x | y)
+# print({**x, **y})  # {'a': 1, 'b': 3, 'c': 4 }
+#
+# a = [1, 2, 3]
+# print(*a)
+
+
+# Области видимости (scope)
+# локальная
+# объемлющая
+# глобальная
+# внешная
+
+
+# def hi():
+#     # global name
+#     name = 'Bob'  # локальная переменная
+#     surname = 'Johnson'
+#     print("Hello", name, surname)
+#
+#
+# def bye():
+#     print("Good bye", name)
+#
+#
+# name = "Tom"  # глобальная переменная
+# print(name)
+# hi()
+# bye()
+# # print(surname)
+
+# i = 5
+#
+#
+# def func(arg=i):
+#     print(arg, i)
+#
+#
+# i = 6
+# func()  # 5 6
+
+# x = 100  # глобальная переменная
+#
+#
+# def func():
+#     # x = 50  # объемлющая
+#
+#     def func1():
+#         # x = 10  # локальная переменная
+#         return x
+#
+#     return func1()
+#
+#
+# print(func())
+
+
+# def add_two(a):
+#     x = 2
+#
+#     def add_some():
+#         print("x =", x)
+#         return a + x
+#
+#     return add_some()
+#
+#
+# print(add_two(3))
+
+
+# min = [1, 2, 3]
+#
+# print(sum(min))
+# print(max(min))
+# print(min(min))
+
+# import builtins
+#
+# names = dir(builtins)
+#
+# for t in names:
+#     print(t)
+
+# def outer_func(who):
+#     def inner_func():
+#         print("Hello,", who)
+#
+#     inner_func()
+#
+#
+# outer_func("World!")
+
+# def func1():
+#     a = 6
+#
+#     def func2(b):
+#         # a = 4
+#         print(a + b)
+#
+#     print("Внешняя переменная a =", a)
+#     func2(4)
+#
+#
+# func1()
+
+# def fn1():
+#     x = 25
+#
+#     def fn2():
+#         # x = 33
+#
+#         def fn3():
+#             nonlocal x
+#             x = 55
+#
+#         fn3()
+#         print('fn2.x =', x)
+#
+#     fn2()
+#     print('fn1.x =', x)
+#
+#
+# fn1()
+
+# def outer(a1, b1, a2, b2):
+#     a = 0
+#     b = 0
+#
+#     def inner():
+#         nonlocal a, b
+#         a = a1 + a2
+#         b = b1 + b2
+#
+#     inner()
+#     return [a, b]
+#
+#
+# print(outer(2, 3, -1, 4))  # [1, 7]
+
+
+# Замыкания
+
+# def outer(n):
+#     def inner(x):
+#         return n + x
+#
+#     return inner
+#
+#
+# add = outer(5)
+# print(add(2))
+# print(add(7))
+#
+# one = outer(10)
+# print(one(6))
+#
+# print(outer(5)(2))
+
+
+# def func1():
+#     a = 1
+#     b = 'line'
+#     c = [1, 2, 3]
+#
+#     def func2():
+#         nonlocal a, b
+#         c.append(4)
+#         a = a + 1
+#         b = b + "_new"
+#         return a, b, c
+#
+#     return func2
+#
+#
+# func = func1()
+# print(func())
+
+# def func(city):
+#     s = 0
+#
+#     def incr():
+#         nonlocal s
+#         s += 1
+#         print(city, s)
+#
+#     return incr
+#
+#
+# res1 = func('Москва')
+# res1()
+# res1()
+# res2 = func('Сочи')
+# res2()
+# res1()
+# res2()
+# res2()
+# res2()
+# res2()
+
+# student = {
+#     'Alice': 100,
+#     'Bob': 67,
+#     'Chris': 85,
+#     'David': 75,
+#     'Ella': 54,
+#     'Fiona': 35,
+#     'Grace': 69
+# }
+#
+#
+# def outer(lower, upper):
+#     def inner(exam):
+#         return {k: v for k, v in exam.items() if lower <= v < upper}
+#
+#     return inner
+#
+#
+# a = outer(80, 101)
+# b = outer(70, 80)
+# c = outer(50, 70)
+# d = outer(0, 50)
+# print(a(student))
+# print(b(student))
+# print(c(student))
+# print(d(student))
+
+# def calc(a, b):
+#     def add():
+#         return a + b
+#
+#     def sub():
+#         return a - b
+#
+#     def mul():
+#         return a * b
+#
+#     def replace():
+#         print()
+#
+#     replace.add1 = add
+#     replace.sub = sub
+#     replace.mul = mul
+#     return replace
+#
+#
+# obj1 = calc(5, 2)
+# print(obj1.add1())
+#
+# obj2 = calc(5, 2)
+# print(obj2.sub())
+#
+# obj3 = calc(5, 2)
+# print(obj3.mul())
+
+
