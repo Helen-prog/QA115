@@ -2028,3 +2028,334 @@
 # print(obj3.mul())
 
 
+# lambda-выражения (анонимные функции)
+
+# def func(x, y):
+#     return x + y
+#
+#
+# print(func(1, 2))
+#
+# print((lambda x, y: x + y)(1, 2))
+#
+# func1 = lambda x, y: x + y
+# print(func1(1, 2))
+# print(func1('a', 'b'))
+
+# print((lambda x, y: x ** 2 + y ** 2)(2, 5))
+
+# s = lambda a=1, b=2, c=3: a + b + c
+#
+# print(s())
+# print(s(10))
+# print(s(10, 20))
+# print(s(10, 20, 30))
+# print(s(c=20))
+
+# f = lambda *args: args
+#
+# print(f(1, 2, 3, 4, 5, 6, 7))
+# print(f('a', 'b'))
+
+# c = (lambda x: x * 2, lambda x: x * 3, lambda x: x * 4)
+#
+# for t in c:
+#     print(t('abc_'))
+
+# def inc(n):
+#     def inner(x):
+#         return x + n
+#
+#     return inner
+#
+#
+# f = inc(5)
+# print(f(2))
+#
+#
+# def inc1(n):
+#     return lambda x: x + n
+#
+#
+# f1 = inc1(5)
+# print(f1(2))
+#
+# inc2 = lambda n: lambda x: x + n
+#
+# f2 = inc2(5)
+# print(f2(2))
+# print((lambda n: lambda x: x + n)(5)(2))
+
+
+# print((lambda x: lambda y: lambda z: x + y + z)(2)(4)(6))
+
+# d = {'d': 50, 'a': 20, 'c': 10, 'b': 40}
+# lst = list(d.items())
+# print(lst)
+# lst.sort(key=lambda i: i[1], reverse=True)
+# print(lst)
+
+# a = [(lambda x, y: x + y), (lambda x, y: x - y), (lambda x, y: x * y), (lambda x, y: x / y)]
+#
+# print(a[0](12, 3))
+# print(a[1](12, 3))
+# print(a[2](12, 3))
+# print(a[3](12, 3))
+
+
+# a = {'one': lambda x: x - 1, 'two': lambda x: abs(x) - 1, 'three': lambda x: x}
+# b = [-3, 10, 0, 1]
+# for i in b:
+#     if i < 0:
+#         print(a['two'](i))
+#     elif i > 0:
+#         print(a['one'](i))
+#     else:
+#         print(a['three'](i))
+
+
+# d = {
+#     1: (lambda: print('Понедельник')),
+#     2: (lambda: print('Вторник')),
+#     3: (lambda: print('Среда')),
+#     4: (lambda: print('Четверг')),
+#     5: (lambda: print('Пятница')),
+#     6: (lambda: print('Суббота')),
+#     7: (lambda: print('Воскресенье')),
+# }
+#
+# print(d[7])
+# d[7]()
+
+# map(func, *iterables)
+
+# def mult(t):
+#     return t * 2
+#
+#
+# lst = [2, 8, 12, -5, -10]
+#
+# print(list(map(mult, lst)))
+#
+# print(list(map(lambda t: t * 2, lst)))
+# print(list(map(lambda t: t * 2, [2, 8, 12, -5, -10])))
+
+# t = (2.88, -1.75, 100.55)
+#
+# print(tuple(map(lambda x: int(x), t)))
+# print(tuple(map(int, t)))
+
+# areas = [3.789456, 5.456789, 2.456123, 1.456127, 7.123789, 4.437895]
+# print(list(map(round, areas, range(1, 7))))
+
+# s1 = ['a', 'b', 'c', 'd', 'e']
+# s2 = [1, 2, 3, 4, 5]
+#
+# print(dict(map(lambda x, y: (x, y), s1, s2)))
+
+
+# l1 = [1, 2, 3]
+# l2 = [4, 5, 6]
+#
+# print((list(map(lambda x, y: x + y, l1, l2))))
+
+
+# filter(func, *iterable)
+
+# t = ('abcd', 'abc', 'adefg', 'dsf', 'dhu')
+#
+# t2 = tuple(filter(lambda s: len(s) < 4, t))
+# # t2 = tuple(map(lambda s: s * 2, t))
+# print(t2)
+
+# b = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65]
+# print(list(filter(lambda s: s > 75, b)))
+
+# import random
+#
+#
+# listik = [random.randint(1, 40) for i in range(10)]
+# print(listik)
+# print(list(filter(lambda i: 10 <= i <= 20, listik)))
+
+# print(list(map(lambda x: x ** 2, filter(lambda x: x % 2 != 0, range(1, 10)))))
+
+# worlds = ('madam', 'fire', 'tomato', 'book', 'kiosk', 'mom')
+# print(list(filter(lambda word: word == word[::-1], worlds)))
+# a = 'tomato'
+# print(a[::-1])
+
+# Декораторы
+
+# def hello():
+#     return "Hello, I am func 'hello'"
+#
+#
+# def super_func(func):
+#     print("Hello, I am func 'super_func'")
+#     print(func())
+#
+#
+# super_func(hello)
+
+# def hello():
+#     return "Hello, I am func 'hello'"
+#
+#
+# test = hello
+# print(test())
+
+# def my_decorator(func):
+#     def wrap():
+#         print('Code before')
+#         func()
+#         print('Code after')
+#     return wrap
+#
+#
+# def func_test():
+#     print("Hello, I am func 'func_test'")
+#
+#
+# test = my_decorator(func_test)
+# test()
+
+# def my_decorator(func):  # декорирующая функция
+#     def wrap():
+#         print('*' * 30)
+#         func()
+#         print('*' * 30, end='\n\n')
+#     return wrap
+#
+#
+# @my_decorator  # декоратор
+# def func_test():  # декорируемая функция
+#     print("Hello, I am func 'func_test'")
+#
+#
+# @my_decorator
+# def hello():
+#     print('5 + 2')
+#
+#
+# func_test()
+# hello()
+
+
+# def circle(fn):
+#     def wrap():
+#         return "(" + fn() + ')'
+#
+#     return wrap
+#
+#
+# def quard(fn):
+#     def wrap():
+#         return "<" + fn() + '>'
+#
+#     return wrap
+#
+#
+# @quard
+# @circle
+# def func():
+#     return '7 + 2'
+#
+#
+# print(func())
+
+# def decor(fn):
+#     def wrap(x, y):
+#         print('Сумма: ')
+#         fn(x, y)
+#
+#     return wrap
+#
+#
+# @decor
+# def func(a, b):
+#     print(a + b)
+#
+#
+# func(5, 2)
+
+# def outer(arg1, arg2):
+#     def decor(fn):
+#         def wrap(x, y):
+#             print(arg1, x, arg2, y, '=', end=" ")
+#             fn(x, y)
+#
+#         return wrap
+#     return decor
+#
+#
+# @outer('Сумма:', '+')
+# def func(a, b):
+#     print(a + b)
+#
+#
+# @outer('Разность:', '-')
+# def sub(a, b):
+#     print(a - b)
+#
+#
+# func(5, 2)
+# sub(5, 2)
+
+# def decor(fn):
+#     def wrap(*x):
+#         print('*' * 30)
+#         fn(*x)
+#         print('*' * 30, end="\n\n")
+#
+#     return wrap
+#
+#
+# @decor
+# def func(a, b):
+#     print(a * b)
+#
+#
+# @decor
+# def func1(a, b, c, d):
+#     print(a + b + c + d)
+#
+#
+# func(2, 5)
+# func1(2, 5, 4, 7)
+
+
+# def args_decor(fn):
+#     def wrap(*args, **kwargs):
+#         print('args:', args)
+#         print('kwargs:', kwargs)
+#         fn(*args, **kwargs)
+#
+#     return wrap
+#
+#
+# @args_decor
+# def print_info(a, b, c, study='Python'):
+#     print(a, b, c, 'изучают', study, end="\n\n")
+#
+#
+# print_info('Борис', 'Елизавета', 'Светлана', study='JavaScript')
+# print_info('Владимир', 'Екатерина', 'Виктор')
+
+# def multiply(arg):
+#     def middle(func):
+#         def wrap(*args, **kwargs):
+#             return arg * func(*args, **kwargs)
+#
+#         return wrap
+#     return middle
+#
+#
+# @multiply(3)
+# def return_num(num):
+#     return num
+#
+#
+# print(return_num(5))
+
+
