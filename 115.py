@@ -2359,3 +2359,223 @@
 # print(return_num(5))
 
 
+# Строки
+
+# print(int('19'))
+# print(int(19.5))
+
+# print(int("100", 2))
+# print(int("100", 10))
+# print(int("100"))
+# print(int("100", 8))
+# print(int("100", 16))
+
+
+# print(bin(18))  # 0b10010
+# print(oct(18))  # 0o22
+# print(hex(18))  # 0x12
+#
+# print(0b10010 + 7)
+# print(0o22)
+# print(0x12 + 2)
+
+# q = 'Pyt'
+# w = "hon"
+# e = q + w
+# print(e)
+# print(e * 3)
+#
+# print('q' in e)
+
+# s = 'Hello'
+# # print(s[4:1:-1])
+# s = s[:3] + 't' + s[4:]
+# print(s)
+
+# print("Привет")
+# print(u"Привет")
+
+# print('I\'m learning\nPython')
+# print('C:\\file.txt')
+# print(r'C:\file.txt')
+
+# name = 'Дмитрий'
+# age = 25
+# print("Меня зовут " + name + '. Мне ' + str(age) + ' лет.')
+# print("Меня зовут ", name, '. Мне ', age, ' лет.', sep="")
+# print(f"Меня зовут {name}. Мне {age * 2} лет.")
+
+
+# a = 7.45789621
+# print(f"Значение числа а = {round(a, 2)}")
+# print(f"Значение числа а = {a:.2f}")
+
+# x = 10
+# y = 5
+# print(f"{x} x {y} / 2 = {x * y / 2}")
+# a = 74
+# print(f"{{{{{ a }}}}}")
+
+# dir_name = 'my_doc'
+# file_name = 'data.txt'
+# print(fr"home\{dir_name}\{file_name}")
+
+
+# 'Строка в одинарных кавычках'
+#
+# '''Строка в тройных одинарных кавычках'''
+#
+# a = "Строка     в " \
+#     "двойных кавычках"
+# print(a)
+#
+# b = """Строка    в
+# тройных        двойных
+# кавычках"""
+# print(b)
+
+
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n"""
+#     return n ** 2
+#
+#
+# print(square(5))
+# print(square.__doc__)
+
+
+# import math
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цилиндра.
+#
+#     Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#     :param r: положительное число, радиус основания цилиндра
+#     :param h: положительное число, высота цилиндра
+#     :return: положительное число, площадь цилиндра
+#     """
+#     return 2 * math.pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+
+# print(ord('a'))
+# print(ord('#'))
+# print(ord('й'))
+#
+# while True:
+#     n = input("-> ")
+#     if n != "-1":
+#         print(ord(n))
+#     else:
+#         break
+
+# s = "Test string for me"
+# arr = [ord(x) for x in s]
+# print(f"ASCII коды: {arr}")
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое:", arr)
+# arr += [x for x in [ord(x) for x in input("-> ")[:3]] if x not in arr]
+# print(arr)
+# if arr[-1] in arr[:-1]:
+#     print("Количество последних элементов:", arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+# print(chr(97))
+# print(chr(35))
+# print(chr(8364))
+
+# a = 122
+# b = 97
+#
+# if a > b:
+#     for i in range(b, a + 1):
+#         print(chr(i), end=" ")
+# else:
+#     for i in range(a, b + 1):
+#         print(chr(i), end=" ")
+
+# print('apple' == 'Apple')
+# print('apple' > 'Apple')  # 97 > 65
+# print(ord("a"))
+# print(ord("A"))
+
+# from random import randint
+#
+# short = 7
+# long = 10
+# min_ascii = 33
+# max_ascii = 126
+#
+#
+# def random_password():
+#     random_length = randint(short, long)
+#     res = ''
+#     for i in range(random_length):
+#         random_char = chr(randint(min_ascii, max_ascii))
+#         res += random_char
+#     return res
+#
+#
+# print("Случайный пароль:", random_password())
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.capitalize())  # Hello, world! i am learning python.
+# print(s.lower())  # hello, world! i am learning python.
+# print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
+# print(s.title())  # Hello, World! I Am Learning Python.
+
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.count('l', 4, 18))
+# print(s.rindex('l'))
+# print(s.index('l'))
+#
+# print(s.rfind("w"))  # если элемент не найден, возвращает "-1"
+# print(s.find("l", 4))
+
+
+# s = 'один два'
+# a = s[s.find(" ") + 1:]
+# print(a)
+# b = s[: s.find(" ")]
+# print(b)
+# s = a + " " + b
+# print(s)
+
+
+# s = 'ab12c59p7dq'
+# digits = []
+# for symbol in s:
+#     if '0123456789'.find(symbol) != -1:
+#         digits.append(int(symbol))
+# print(digits)
+
+
+# s = "Дана ст(рока символов, среди которых есть одна открыв)ающаяся"
+# s = s[s.find("(") + 1:s.find(")")]
+# print(s)
+
+# s = "Using the Hello World guide, you’ll create a repository, start a branch, write comments, and open a pull request."
+#
+# sym = "U"
+# if s.count(sym) == 1:
+#     print(s.find(sym))
+# elif s.count(sym) >= 2:
+#     print(s.find(sym), s.rfind(sym))
+
+s = '11 23 44 55 23 22'
+s_old = input("Что заменить: ")  # 23
+s_new = input("На что заменить: ")  # !!!
+i = s.find(s_old)
+while i != -1:
+    l = len(s_old)
+    s = s[:i] + s_new + s[i + l:]
+    i = s.find(s_old)
+
+print(s)
