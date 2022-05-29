@@ -2694,8 +2694,176 @@ import re
 # print(re.findall(reg1, s1))
 
 
-def validate_name(name):
-    return re.findall(r'^[\w-]{3,16}$', name)
+# def validate_name(name):
+#     return re.findall(r'^[\w-]{3,16}$', name)
+#
+#
+# print(validate_name('Python_master'))
+
+# print(re.findall(r'\w+', '12 + й + q'))
+# print(re.findall(r'\w+', '12 + й + q', flags=re.ASCII))
+
+# s = "Я ищу совпадения в 2021 году. И я их найду в 2 счё_та. [7895-1982] Ne w"
+# reg = 'я'
+# print(re.findall(reg, s, re.IGNORECASE))
+
+# text = """
+# one
+# two
+# """
+#
+# # print(re.findall(r'one.\w+', text))
+# # print(re.findall(r'one.\w+', text, flags=re.DOTALL))
+# print(re.findall(r'one$', text))
+# print(re.findall(r'one$', text, flags=re.MULTILINE))
+# print(re.findall(r'^\w+', text))
+# print(re.findall(r'^\w+', text, flags=re.MULTILINE))
+
+# text = """Python,
+# python,
+# PYTHON"""
+# reg = "(?im)^python"
+# print(re.findall(reg, text))
 
 
-print(validate_name('Python_master'))
+# text = "<body>Пример жадного соответствия регулярных выражений</body>"
+# print(re.findall('<.*?>', text))
+
+# *?, +?, ??
+# {m,n}?, {,n}?, {m,}?
+
+# text = "Python (в русском языке встречаются названия пито́н[16] или па́йтон[17]) — высокоуровневый язык " \
+#        "программирования общего назначения с динамической строгой типизацией и автоматическим управлением памятью[18][19]."
+# reg = r'\[.*?\]'
+# print(re.findall(reg, text))
+
+# s = "Петр и Виталий отлично учатся!"
+# reg = f"Петр|Виталий|Ольга"
+# print(re.findall(reg, s))
+
+# s = 'int = 4, float = 4.0, double = 8.0f'
+# reg = r'(?:int|double)\s*=\s*(\d+[.\w+]*)'
+# print(re.findall(reg, s))
+
+# s = 'Word2016, PS6, AI5'
+# reg = r'(([a-z]+)(\d*))'
+# print(re.findall(reg, s, re.I))
+
+# a = '31-12-2021'  #
+# pattern = r'(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])'
+# print(re.findall(pattern, a))
+
+# s = "Я ищу совпадения в 2021 году. И я их найду в 2 счёта."
+# reg = r'(\d+)\s(\D+)'
+# print(re.findall(reg, s))
+# print(re.search(reg, s).group())
+# m = re.search(reg, s)
+# print(m[0])
+# print(m[1])
+# print(m[2])
+
+# s = '10/23/2021 и 10/24/2021'
+# reg = r'(\d{2})/(\d{2})/(\d{4})'
+# print(re.sub(reg, r'\2.\1.\3', s))
+
+
+# s = 'google.com and google.ru'
+# reg = r'(([a-z0-9-]{2,}\.)+[a-z]{2,4})'
+# print(re.sub(reg, r'http://\1', s))  #
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#     def set_coords(self, x, y):
+#         self.x = x
+#         self.y = y
+#         print("Вызов метода")
+#
+#
+# # Point.y = 300
+# p1 = Point()
+# p1.x = 100
+# p1.y = 50
+# p1.set_coords(10, 20)
+# # Point.set_coords(p1, 10, 22)
+#
+# print(p1.x, p1.y)
+# # p1.z = 200
+# print(p1.__dict__)
+# print(Point.__dict__)
+# print(type(p1))
+# print(id(p1))
+# print(id(Point))
+# p2 = Point()
+# p2.set_coords(400, 500)
+# # p2.x = 200
+# print(p2.x, p2.y)
+# # print(p2.__dict__)
+
+# class Human:
+#     name = 'name'
+#     birthday = '00.00.0000'
+#     phone = '00-00-00'
+#     country = 'country'
+#     city = 'city'
+#     address = 'street, house'
+#
+#     def print_info(self):
+#         print(" Персональные данные ".center(40, "*"))
+#         print(f"Имя: {self.name}\nДата рождения: {self.birthday}"
+#               f"\nНомер телефона: {self.phone}\nСтрана: {self.country}"
+#               f"\nГород: {self.city}\nДомашний адрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.address = address
+#         self.name = first_name
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.country = country
+#         self.city = city
+#
+#     def set_phone(self, tel):  # установить (изменить) номер телефона
+#         self.phone = tel
+#
+#     def get_phone(self):  # получить номер телефона
+#         return self.phone
+#
+#     def set_city(self, city):
+#         self.city = city
+#
+#     def get_city(self):
+#         return self.city
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", '45-46-98', 'Россия', 'Москва', 'Чистопрудный бульвар, 1А')
+# h1.print_info()
+# h1.set_phone('77-77-77')
+# print(h1.get_phone())
+# h1.set_city("Сочи")
+# print(h1.get_city())
+# h1.print_info()
+
+
+class Person:
+    skill = 10
+
+    def print_info(self, name, surname):
+        self.name = name
+        self.surname = surname
+        print("Данные о сотруднике:", self.name, self.surname)
+
+    def add_skill(self, k):
+        self.skill += k
+        print("Квалификация сотрудника:", self.skill, end="\n\n")
+
+
+p1 = Person()
+p1.print_info('Viktor', 'Reznik')
+p1.add_skill(3)
+p2 = Person()
+p2.print_info('Anna', 'Dolgih')
+p2.add_skill(2)
