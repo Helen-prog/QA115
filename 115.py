@@ -2848,22 +2848,219 @@ import re
 # h1.print_info()
 
 
-class Person:
-    skill = 10
+# class Person:
+#     skill = 10  # статические свойства
+#     count = 0
+#
+#     def __init__(self, name, surname):  # динамические свойства
+#         self.name = name
+#         self.surname = surname
+#         Person.count += 1
+#         self.n = 45
+#
+#     def __del__(self):
+#         print("Удаление экземпляра класса")
+#
+#     def print_info(self):
+#         print("Данные о сотруднике:", self.name, self.surname)
+#
+#     def add_skill(self, k):
+#         self.skill += k
+#         print("Квалификация сотрудника:", self.skill, end="\n\n")
+#
+#
+# p1 = Person('Viktor', 'Reznik')
+# p1.print_info()
+# # del p1
+# p1.add_skill(3)
+# p2 = Person('Anna', 'Dolgih')
+# p2.print_info()
+# p2.add_skill(2)
+#
+# p3 = Person('Ирина', 'Dolgih')
+#
+# print(Person.count)
 
-    def print_info(self, name, surname):
-        self.name = name
-        self.surname = surname
-        print("Данные о сотруднике:", self.name, self.surname)
 
-    def add_skill(self, k):
-        self.skill += k
-        print("Квалификация сотрудника:", self.skill, end="\n\n")
+# class Robot:
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print("Инициализация робота:", self.name)
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, "выключается!")
+#         Robot.k -= 1
+#         if Robot.k == 0:
+#             print(self.name, "был последним")
+#         else:
+#             print("Работающих роботов осталось:", Robot.k)
+#
+#     def say_hi(self):
+#         print("Приветствую! Меня зовут:", self.name)
+#         print("Численность роботов:", Robot.k)
+#
+#
+# droid1 = Robot('R2-D2')
+# droid1.say_hi()
+# # print("Численность роботов:", Robot.k)
+# droid2 = Robot('C-3PO')
+# droid2.say_hi()
+# # print("Численность роботов:", Robot.k)
+#
+# droid3 = Robot('RR-R2-D2')
+# droid3.say_hi()
+# # print("Численность роботов:", Robot.k)
+# droid4 = Robot('T-C-3PO')
+# droid4.say_hi()
+# # print("Численность роботов:", Robot.k)
+#
+# print("\nЗдесь роботы могут проделать какую-то работу.\n")
+#
+# print("Роботы закончили свою работу. Давайте их выключим.")
+# del droid1
+# del droid2
+# del droid3
+# del droid4
+# print("Численность роботов:", Robot.k)
 
 
-p1 = Person()
-p1.print_info('Viktor', 'Reznik')
-p1.add_skill(3)
-p2 = Person()
-p2.print_info('Anna', 'Dolgih')
-p2.add_skill(2)
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Point.__check_values(x) and Point.__check_values(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def __check_values(s):
+#         if isinstance(s, (int, float)):
+#             return True
+#         return False
+#
+#     def set_coords(self, x, y):
+#         if Point.__check_values(x) and Point.__check_values(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_coords(self):
+#         return self.__x, self.__y
+#
+#     def set_coords_x(self, x):
+#         if Point.__check_values(x):
+#             self.__x = x
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def set_coords_y(self, y):
+#         if Point.__check_values(y):
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_coords_x(self):
+#         return self.__x
+#
+#     def get_coords_y(self):
+#         return self.__y
+#
+#
+# p1 = Point(5, 10)
+# print(p1.get_coords())
+# p1.set_coords(50, 100.3)
+# p1.set_coords_x(300)
+# p1.set_coords_y(200)
+# print(p1.get_coords())
+# print("x =", p1.get_coords_x())
+# print("y =", p1.get_coords_y())
+# print(p1.__x, p1.__y)
+# p1.__x = 100
+# p1.__y = 'abc'
+# print(p1.x, p1.__y)
+# print(p1.__dict__)
+
+class Car:
+    def __init__(self, name, year, model, power, color, price):
+        self.__name = self.__model = self.__color = "Некорректные данные"
+        self.__year = self.__power = self.__price = 0
+        if Car.__check_value_str(name):
+            self.__name = name
+        if Car.__check_value_str(model):
+            self.__model = model
+        if Car.__check_value_str(color):
+            self.__color = color
+        if Car.__check_value_int(year):
+            self.__year = year
+        if Car.__check_value_int(power):
+            self.__power = power
+        if Car.__check_value_int(price):
+            self.__price = price
+
+    def __check_value_int(s):
+        if not isinstance(s, int):
+            print("Данные должны быть числом")
+            return False
+        return True
+
+    def __check_value_str(s):
+        if not isinstance(s, str):
+            print("Данные должны быть строкой")
+            return False
+        return True
+
+    def print_info(self):
+        print(" Данные автомобиля ".center(40, "*"))
+        print(f"""Название модели: {self.__name}
+Год выпуска: {self.__year}
+Производитель: {self.__model}
+Мощность двигателя: {self.__power} л.с.
+Цвет машины: {self.__color}
+Цена: {self.__price}""")
+        print(40 * "=")
+
+    def set_year(self, year):
+        if Car.__check_value_int(year):
+            self.__year = year
+
+    def set_power(self, power):
+        if Car.__check_value_int(power):
+            self.__power = power
+
+    def set_price(self, price):
+        if Car.__check_value_int(price):
+            self.__price = price
+
+    def set_name(self, name):
+        if Car.__check_value_str(name):
+            self.__name = name
+
+    def set_model(self, model):
+        if Car.__check_value_str(model):
+            self.__model = model
+
+    def set_color(self, color):
+        if Car.__check_value_str(color):
+            self.__color = color
+
+    def get_name(self):
+        return self.__name
+
+
+c1 = Car('X7 M50i', 2021, 'BMW', 530, 'white', 10790000)  #
+print(c1._Car__name)
+c1._Car__name = "X2"
+print(c1.__dict__)
+c1.print_info()
+# c1.set_year(1999)
+# c1.set_power(480)
+# c1.set_price(12790000)
+# c1.set_name('X9')
+# c1.set_model("Renault")
+# c1.set_color("black")
+# c1.print_info()
+# print(c1.get_name())
