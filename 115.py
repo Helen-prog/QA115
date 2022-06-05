@@ -2632,7 +2632,6 @@
 # Регулярные выражения
 import re
 
-
 # s = "Я ищу совпадения в 2021 году. И я их найду в 2 счё_та. [7895-1982] Ne w"
 # # reg = r'^\w+\s\w+'
 # reg = r'\w+\s\w+$'
@@ -2984,78 +2983,78 @@ import re
 # print(p1.x, p1.__y)
 # print(p1.__dict__)
 
-class Car:
-    def __init__(self, name, year, model, power, color, price):
-        self.__name = self.__model = self.__color = "Некорректные данные"
-        self.__year = self.__power = self.__price = 0
-        if Car.__check_value_str(name):
-            self.__name = name
-        if Car.__check_value_str(model):
-            self.__model = model
-        if Car.__check_value_str(color):
-            self.__color = color
-        if Car.__check_value_int(year):
-            self.__year = year
-        if Car.__check_value_int(power):
-            self.__power = power
-        if Car.__check_value_int(price):
-            self.__price = price
-
-    def __check_value_int(s):
-        if not isinstance(s, int):
-            print("Данные должны быть числом")
-            return False
-        return True
-
-    def __check_value_str(s):
-        if not isinstance(s, str):
-            print("Данные должны быть строкой")
-            return False
-        return True
-
-    def print_info(self):
-        print(" Данные автомобиля ".center(40, "*"))
-        print(f"""Название модели: {self.__name}
-Год выпуска: {self.__year}
-Производитель: {self.__model}
-Мощность двигателя: {self.__power} л.с.
-Цвет машины: {self.__color}
-Цена: {self.__price}""")
-        print(40 * "=")
-
-    def set_year(self, year):
-        if Car.__check_value_int(year):
-            self.__year = year
-
-    def set_power(self, power):
-        if Car.__check_value_int(power):
-            self.__power = power
-
-    def set_price(self, price):
-        if Car.__check_value_int(price):
-            self.__price = price
-
-    def set_name(self, name):
-        if Car.__check_value_str(name):
-            self.__name = name
-
-    def set_model(self, model):
-        if Car.__check_value_str(model):
-            self.__model = model
-
-    def set_color(self, color):
-        if Car.__check_value_str(color):
-            self.__color = color
-
-    def get_name(self):
-        return self.__name
-
-
-c1 = Car('X7 M50i', 2021, 'BMW', 530, 'white', 10790000)  #
-print(c1._Car__name)
-c1._Car__name = "X2"
-print(c1.__dict__)
-c1.print_info()
+# class Car:
+#     def __init__(self, name, year, model, power, color, price):
+#         self.__name = self.__model = self.__color = "Некорректные данные"
+#         self.__year = self.__power = self.__price = 0
+#         if Car.__check_value_str(name):
+#             self.__name = name
+#         if Car.__check_value_str(model):
+#             self.__model = model
+#         if Car.__check_value_str(color):
+#             self.__color = color
+#         if Car.__check_value_int(year):
+#             self.__year = year
+#         if Car.__check_value_int(power):
+#             self.__power = power
+#         if Car.__check_value_int(price):
+#             self.__price = price
+#
+#     def __check_value_int(s):
+#         if not isinstance(s, int):
+#             print("Данные должны быть числом")
+#             return False
+#         return True
+#
+#     def __check_value_str(s):
+#         if not isinstance(s, str):
+#             print("Данные должны быть строкой")
+#             return False
+#         return True
+#
+#     def print_info(self):
+#         print(" Данные автомобиля ".center(40, "*"))
+#         print(f"""Название модели: {self.__name}
+# Год выпуска: {self.__year}
+# Производитель: {self.__model}
+# Мощность двигателя: {self.__power} л.с.
+# Цвет машины: {self.__color}
+# Цена: {self.__price}""")
+#         print(40 * "=")
+#
+#     def set_year(self, year):
+#         if Car.__check_value_int(year):
+#             self.__year = year
+#
+#     def set_power(self, power):
+#         if Car.__check_value_int(power):
+#             self.__power = power
+#
+#     def set_price(self, price):
+#         if Car.__check_value_int(price):
+#             self.__price = price
+#
+#     def set_name(self, name):
+#         if Car.__check_value_str(name):
+#             self.__name = name
+#
+#     def set_model(self, model):
+#         if Car.__check_value_str(model):
+#             self.__model = model
+#
+#     def set_color(self, color):
+#         if Car.__check_value_str(color):
+#             self.__color = color
+#
+#     def get_name(self):
+#         return self.__name
+#
+#
+# c1 = Car('X7 M50i', 2021, 'BMW', 530, 'white', 10790000)  #
+# print(c1._Car__name)
+# c1._Car__name = "X2"
+# print(c1.__dict__)
+# c1.print_info()
 # c1.set_year(1999)
 # c1.set_power(480)
 # c1.set_price(12790000)
@@ -3064,3 +3063,287 @@ c1.print_info()
 # c1.set_color("black")
 # c1.print_info()
 # print(c1.get_name())
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     @property
+#     def coord_x(self):   # get - получить
+#         return self.__x
+#
+#     @coord_x.setter
+#     def coord_x(self, x):  # set - установить
+#         if isinstance(x, (int, float)):
+#             self.__x = x
+#         else:
+#             print("Неверный формат данных")
+#
+#     # coordX = property(__get_coords_x, __set_coords_x)
+#
+#
+# p1 = Point(5, 10)
+# # p1.set_coords_x(30)
+# p1.coord_x = 30
+# print(p1.coord_x)
+# print(p1.__dict__)
+
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.__x = x
+#         self.__y = y
+#         Point.__count += 1
+#
+#     # @staticmethod
+#     def get_count():
+#         return Point.__count
+#
+#     get_count = staticmethod(get_count)
+#
+#
+# p1 = Point()
+# p2 = Point()
+# p3 = Point()
+#
+# print(Point.get_count())
+# print(p1.get_count())
+
+# class Change:
+#     @staticmethod
+#     def inc(x):
+#         return x + 1
+#
+#     @staticmethod
+#     def dec(x):
+#         return x - 1
+#
+#
+# print(Change.inc(10), Change.dec(10))
+
+
+# class Numbers:
+#     @staticmethod
+#     def max(a, b, c, d):
+#         mx = a  # 13
+#         if b > mx:
+#             mx = b
+#         if c > mx:
+#             mx = c
+#         if d > mx:
+#             mx = d
+#         return mx
+#
+#     @staticmethod
+#     def min(a, b, c, d):
+#         mx = a
+#         if b < mx:
+#             mx = b
+#         if c < mx:
+#             mx = c
+#         if d < mx:
+#             mx = d
+#         return mx
+#
+#     @staticmethod
+#     def average(a, b, c, d):
+#         return (a + b + c + d) / 4
+#
+#     @staticmethod
+#     def factorial(n):
+#         fact = 1
+#         for i in range(1, n + 1):  # от 0 до 5
+#             fact *= i
+#         return fact
+#
+#     # @staticmethod
+#     # def factorial(x):
+#     #     if x == 0:
+#     #         return 1
+#     #     factorial = x * Numbers.factorial(x - 1)
+#     #     return factorial
+#
+#
+# print("Максимальное число:", Numbers.max(13, 5, 7, 9))
+# print("Минимальное число:", Numbers.min(13, 5, 7, 9))
+# print("Среднее арифметическое:", Numbers.average(3, 5, 7, 9))
+# print("Факториал числа:", Numbers.factorial(5))  # 1*2*3*4*5
+
+# class Math:
+#     @staticmethod
+#     def max(*args):
+#         result = args[0]
+#         for i in args:
+#             if i > result:
+#                 result = i
+#
+#         return result
+#
+#
+# print(Math.max(3, 5, 7, 9))
+
+
+# class Date:
+#     def __init__(self, day, month, year):
+#         self.day = day
+#         self.month = month
+#         self.year = year
+#
+#     @classmethod
+#     def from_string(cls, string_date):
+#         day, month, year = map(int, string_date.split("."))
+#         return cls(day, month, year)
+#
+#     @staticmethod
+#     def is_date_valid(date_as_string):
+#         if date_as_string.count(".") == 2:
+#             day, month, year = map(int, date_as_string.split("."))
+#             return day <= 31 and month <= 12 and year <= 3999
+#
+#     def sting_to_db(self):
+#         return f"{self.year}-{self.month}-{self.day}"
+#
+#
+# dates = [
+#     '30.12.2020',
+#     '30-12-2021',
+#     '01/01/2021',
+#     '31.12.2021'
+# ]
+#
+# for string_date in dates:
+#     if Date.is_date_valid(string_date):
+#         date = Date.from_string(string_date)
+#         string_to_db = date.sting_to_db()
+#         print(string_to_db)
+#     else:
+#         print("Неправильная дата или формат строки с датой")
+# date1 = Date.from_string('30.12.2021')
+# print(date1.sting_to_db())
+# date2 = Date.from_string('21/10/2021')
+# print(date2.sting_to_db())
+
+# string_date = '23.10.2021'
+# day, month, year = map(int, string_date.split("."))  # [23, 10, 2021]
+# print(day, month, year)
+# date = Date(day, month, year)
+# print(date.sting_to_db())
+import re
+
+
+class UserData:
+    def __init__(self, fio, old, ps, weight):
+        self.fio = fio
+        self.old = old
+        self.password = ps
+        self.weight = weight
+
+    @classmethod
+    def verify_fio(cls, fio):
+        if not isinstance(fio, str):
+            # raise TypeError("ФИО должны быть строкой")
+            print("ФИО должны быть строкой")
+            return False
+        f = fio.split()  # ['Волков', 'Игорь', 'Николаевич']
+        if len(f) != 3:
+            # raise TypeError("Неверный формат ФИО")
+            print("Неверный формат ФИО")
+            return False
+        letters = "".join(re.findall(r'[a-zа-яё-]', fio, flags=re.IGNORECASE))  # ВолковИгорьНиколаевич
+        for s in f:
+            if len(s.strip(letters)) != 0:
+                # raise TypeError("В ФИО можно использовать только буквы и дефис")
+                print("В ФИО можно использовать только буквы и дефис")
+                return False
+        return True
+
+    @classmethod
+    def verify_old(cls, old):
+        if not isinstance(old, int) or old < 14 or old > 100:
+            # UserData.__old = 0
+            # raise TypeError("Возраст должен быть числом в диапазоне от 14 до 100 лет")
+            print("Возраст должен быть числом в диапазоне от 14 до 100 лет")
+            return False
+        return True
+
+    @classmethod
+    def verify_weight(cls, w):
+        if not isinstance(w, float) or w < 20:
+            # raise TypeError("Вес должен быть веществтенным числом от 20 кг и выше")
+            print("Вес должен быть веществтенным числом от 20 кг и выше")
+            return False
+        return True
+
+    @classmethod
+    def verify_ps(cls, ps):
+        if not isinstance(ps, str):
+            # raise TypeError("Паспорт должен быть строкой")
+            print("Паспорт должен быть строкой")
+            return False
+        s = ps.split()  # ['1234', '567890']
+        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+            # raise TypeError("Неверный формат паспорта")
+            print("Неверный формат паспорта")
+            return False
+        for p in s:
+            if not p.isdigit():
+                # raise TypeError("Серия и номер паспорта должны быть числами")
+                print("Серия и номер паспорта должны быть числами")
+                return False
+        return True
+
+    @property
+    def fio(self):
+        return self.__fio
+
+    @fio.setter
+    def fio(self, fio):
+        if self.verify_fio(fio):
+            self.__fio = fio
+        else:
+            self.__fio = "Фамилия Имя Отчество"
+
+    @property
+    def old(self):
+        return self.__old
+
+    @old.setter
+    def old(self, year):
+        if self.verify_old(year):
+            self.__old = year
+        else:
+            self.__old = 0
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    @weight.setter
+    def weight(self, weight):
+        if self.verify_weight(weight):
+            self.__weight = weight
+        else:
+            self.__weight = 0.0
+
+    @property
+    def password(self):
+        return self.__password
+
+    @password.setter
+    def password(self, ps):
+        if self.verify_ps(ps):
+            self.__password = ps
+        else:
+            self.__password = "0000 000000"
+
+
+p1 = UserData("Волков2 Игорь Николаевич", 126, "1234 A67890", 80)
+# p1.fio = "Соболев Игорь Николаевич"
+# print(p1.fio)
+# p1.old = 36
+# p1.weight = 76.2
+# p1.password = '4567 123456'
+print(p1.__dict__)
