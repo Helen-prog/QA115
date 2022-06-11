@@ -3172,7 +3172,7 @@ import re
 # print("Среднее арифметическое:", Numbers.average(3, 5, 7, 9))
 # print("Факториал числа:", Numbers.factorial(5))  # 1*2*3*4*5
 
-# class Math:
+# class Numbers:
 #     @staticmethod
 #     def max(*args):
 #         result = args[0]
@@ -3183,7 +3183,7 @@ import re
 #         return result
 #
 #
-# print(Math.max(3, 5, 7, 9))
+# print(Numbers.max(3, 5, 7, 9))
 
 
 # class Date:
@@ -3231,119 +3231,279 @@ import re
 # print(day, month, year)
 # date = Date(day, month, year)
 # print(date.sting_to_db())
-import re
+# import re
+#
+#
+# class UserData:
+#     def __init__(self, fio, old, ps, weight):
+#         self.fio = fio
+#         self.old = old
+#         self.password = ps
+#         self.weight = weight
+#
+#     @classmethod
+#     def verify_fio(cls, fio):
+#         if not isinstance(fio, str):
+#             # raise TypeError("ФИО должны быть строкой")
+#             print("ФИО должны быть строкой")
+#             return False
+#         f = fio.split()  # ['Волков', 'Игорь', 'Николаевич']
+#         if len(f) != 3:
+#             # raise TypeError("Неверный формат ФИО")
+#             print("Неверный формат ФИО")
+#             return False
+#         letters = "".join(re.findall(r'[a-zа-яё-]', fio, flags=re.IGNORECASE))  # ВолковИгорьНиколаевич
+#         for s in f:
+#             if len(s.strip(letters)) != 0:
+#                 # raise TypeError("В ФИО можно использовать только буквы и дефис")
+#                 print("В ФИО можно использовать только буквы и дефис")
+#                 return False
+#         return True
+#
+#     @classmethod
+#     def verify_old(cls, old):
+#         if not isinstance(old, int) or old < 14 or old > 100:
+#             # UserData.__old = 0
+#             # raise TypeError("Возраст должен быть числом в диапазоне от 14 до 100 лет")
+#             print("Возраст должен быть числом в диапазоне от 14 до 100 лет")
+#             return False
+#         return True
+#
+#     @classmethod
+#     def verify_weight(cls, w):
+#         if not isinstance(w, float) or w < 20:
+#             # raise TypeError("Вес должен быть веществтенным числом от 20 кг и выше")
+#             print("Вес должен быть веществтенным числом от 20 кг и выше")
+#             return False
+#         return True
+#
+#     @classmethod
+#     def verify_ps(cls, ps):
+#         if not isinstance(ps, str):
+#             # raise TypeError("Паспорт должен быть строкой")
+#             print("Паспорт должен быть строкой")
+#             return False
+#         s = ps.split()  # ['1234', '567890']
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             # raise TypeError("Неверный формат паспорта")
+#             print("Неверный формат паспорта")
+#             return False
+#         for p in s:
+#             if not p.isdigit():
+#                 # raise TypeError("Серия и номер паспорта должны быть числами")
+#                 print("Серия и номер паспорта должны быть числами")
+#                 return False
+#         return True
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @fio.setter
+#     def fio(self, fio):
+#         if self.verify_fio(fio):
+#             self.__fio = fio
+#         else:
+#             self.__fio = "Фамилия Имя Отчество"
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, year):
+#         if self.verify_old(year):
+#             self.__old = year
+#         else:
+#             self.__old = 0
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, weight):
+#         if self.verify_weight(weight):
+#             self.__weight = weight
+#         else:
+#             self.__weight = 0.0
+#
+#     @property
+#     def password(self):
+#         return self.__password
+#
+#     @password.setter
+#     def password(self, ps):
+#         if self.verify_ps(ps):
+#             self.__password = ps
+#         else:
+#             self.__password = "0000 000000"
+#
+#
+# p1 = UserData("Волков2 Игорь Николаевич", 126, "1234 A67890", 80)
+# # p1.fio = "Соболев Игорь Николаевич"
+# # print(p1.fio)
+# # p1.old = 36
+# # p1.weight = 76.2
+# # p1.password = '4567 123456'
+# print(p1.__dict__)
+
+# f = open("text.txt", mode="r")
+# f = open("text.txt", "r")
+# f = open("text.txt")
+# print(f.read(3))
+# print(f.read())
+# f.close()
+
+# f = open('test.txt', 'r')
+# print(f.readline())
+# print(f.readline(8))
+# print(f.readline())
+# print(f.readline())
+# f.close()
 
 
-class UserData:
-    def __init__(self, fio, old, ps, weight):
-        self.fio = fio
-        self.old = old
-        self.password = ps
-        self.weight = weight
-
-    @classmethod
-    def verify_fio(cls, fio):
-        if not isinstance(fio, str):
-            # raise TypeError("ФИО должны быть строкой")
-            print("ФИО должны быть строкой")
-            return False
-        f = fio.split()  # ['Волков', 'Игорь', 'Николаевич']
-        if len(f) != 3:
-            # raise TypeError("Неверный формат ФИО")
-            print("Неверный формат ФИО")
-            return False
-        letters = "".join(re.findall(r'[a-zа-яё-]', fio, flags=re.IGNORECASE))  # ВолковИгорьНиколаевич
-        for s in f:
-            if len(s.strip(letters)) != 0:
-                # raise TypeError("В ФИО можно использовать только буквы и дефис")
-                print("В ФИО можно использовать только буквы и дефис")
-                return False
-        return True
-
-    @classmethod
-    def verify_old(cls, old):
-        if not isinstance(old, int) or old < 14 or old > 100:
-            # UserData.__old = 0
-            # raise TypeError("Возраст должен быть числом в диапазоне от 14 до 100 лет")
-            print("Возраст должен быть числом в диапазоне от 14 до 100 лет")
-            return False
-        return True
-
-    @classmethod
-    def verify_weight(cls, w):
-        if not isinstance(w, float) or w < 20:
-            # raise TypeError("Вес должен быть веществтенным числом от 20 кг и выше")
-            print("Вес должен быть веществтенным числом от 20 кг и выше")
-            return False
-        return True
-
-    @classmethod
-    def verify_ps(cls, ps):
-        if not isinstance(ps, str):
-            # raise TypeError("Паспорт должен быть строкой")
-            print("Паспорт должен быть строкой")
-            return False
-        s = ps.split()  # ['1234', '567890']
-        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
-            # raise TypeError("Неверный формат паспорта")
-            print("Неверный формат паспорта")
-            return False
-        for p in s:
-            if not p.isdigit():
-                # raise TypeError("Серия и номер паспорта должны быть числами")
-                print("Серия и номер паспорта должны быть числами")
-                return False
-        return True
-
-    @property
-    def fio(self):
-        return self.__fio
-
-    @fio.setter
-    def fio(self, fio):
-        if self.verify_fio(fio):
-            self.__fio = fio
-        else:
-            self.__fio = "Фамилия Имя Отчество"
-
-    @property
-    def old(self):
-        return self.__old
-
-    @old.setter
-    def old(self, year):
-        if self.verify_old(year):
-            self.__old = year
-        else:
-            self.__old = 0
-
-    @property
-    def weight(self):
-        return self.__weight
-
-    @weight.setter
-    def weight(self, weight):
-        if self.verify_weight(weight):
-            self.__weight = weight
-        else:
-            self.__weight = 0.0
-
-    @property
-    def password(self):
-        return self.__password
-
-    @password.setter
-    def password(self, ps):
-        if self.verify_ps(ps):
-            self.__password = ps
-        else:
-            self.__password = "0000 000000"
+# f = open('test.txt', 'r')
+# print(f.readlines())
+# f.close()
 
 
-p1 = UserData("Волков2 Игорь Николаевич", 126, "1234 A67890", 80)
-# p1.fio = "Соболев Игорь Николаевич"
-# print(p1.fio)
-# p1.old = 36
-# p1.weight = 76.2
-# p1.password = '4567 123456'
-print(p1.__dict__)
+# f = open('test.txt', 'r')
+# for line in f:
+#     print(line)
+# f.close()
+
+# f = open('file.txt', 'w')
+# f.write("Hello\nWorld")
+# f.close()
+
+# f = open('file2.txt', 'a+')
+# f.write("New text.")
+# f.read()
+# f.close()
+
+# with open('test.txt', 'a+') as f:
+#     print(f.write('\n0123456789'))
+
+# with open('test.txt', 'r') as f:
+#     for line in f:
+#         print(line)
+
+import csv
+
+#
+# with open("data.csv") as f:
+#     file_reader = csv.reader(f)
+#     # print(list(file_reader))
+#     count = 0
+#     for row in file_reader:
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#         else:
+#             print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году.")
+#         count += 1
+#     print(f'Всего в файле {count} строки.')
+
+# with open("data2.csv") as f:
+#     reader = csv.reader(f, delimiter=";")
+#     for row in reader:
+#         print(row)
+
+# with open("data.csv") as f:
+#     field_name = ["Имя", "Профессия", "Год рождения"]
+#     file_reader = csv.DictReader(f, fieldnames=field_name)
+#     count = 0
+#     for row in file_reader:
+#         if count == 0:
+#             print(f"Файл содержит столбцы: {', '.join(row)}")
+#         print(f"{row['Имя']} - {row['Профессия']} - {row['Год рождения']}")
+#         count += 1
+
+# with open("student.csv", "w") as f:
+#     writer = csv.writer(f, lineterminator="\r")
+#     writer.writerow(["Имя", "Класс", "Возраст"])
+#     writer.writerow(["Женя", "9", "15"])
+#     writer.writerow(["Саша", "5", "12"])
+#     writer.writerow(["Маша", "11", "18"])
+
+# data = [['hostname', 'vendor', 'model', 'location'],
+#         ['sw1', 'Cisco', '3750', 'London, Best str'],
+#         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
+#         ['sw3', 'Cisco', '3650', 'Liverpool, Better str'],
+#         ['sw4', 'Cisco', '3650', 'London, Best str']]
+#
+# with open("sw_data_new.csv", "w") as f:
+#     writer = csv.writer(f, delimiter=",", lineterminator="\r")
+#     for row in data:
+#         writer.writerow(row)
+#
+# with open("sw_data_new.csv") as f:
+#     print(f.read())
+
+# with open("student1.csv", "w") as f:
+#     name = ["Имя", "Возраст"]
+#     writer = csv.DictWriter(f, lineterminator="\r", fieldnames=name)
+#     writer.writeheader()
+#     writer.writerow({"Имя": "Саша", "Возраст": "6"})
+#     writer.writerow({"Имя": "Маша", "Возраст": "15"})
+#     writer.writerow({"Имя": "Вова", "Возраст": "14"})
+
+# data = [{
+#     'hostname': 'sw1',
+#     'location': 'London',
+#     'model': '3750',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw2',
+#     'location': 'Liverpool',
+#     'model': '3850',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw3',
+#     'location': 'Liverpool',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }, {
+#     'hostname': 'sw4',
+#     'location': 'London',
+#     'model': '3650',
+#     'vendor': 'Cisco'
+# }]
+#
+# with open('dictwriter.csv', 'w') as f:
+#     writer = csv.DictWriter(f, lineterminator="\r", fieldnames=list(data[0].keys()))
+#     writer.writeheader()
+#     for d in data:
+#         writer.writerow(d)
+
+from bs4 import BeautifulSoup
+import requests
+
+
+# f = open('index.html').read()
+# soup = BeautifulSoup(f, 'html.parser')
+# # row = soup.find_all("div", class_="name")
+# # row = soup.find("div", class_="name")
+# # row = soup.find("div", id="whois1")
+# row = soup.find_all("div", class_="row")[1].find("div", class_="name").text
+# print(row)
+
+
+def get_html(url):
+    rt = requests.get(url)
+    return rt.text
+
+
+def get_data(html):
+    soup = BeautifulSoup(html, "html.parser")
+    p1 = soup.find("header", id="masthead").find("p", class_="site-title").text
+    return p1
+
+
+def main():
+    url = "https://ru.wordpress.org/"
+    print(get_data(get_html(url)))
+
+
+if __name__ == '__main__':
+    main()
