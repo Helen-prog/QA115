@@ -2630,7 +2630,7 @@
 
 
 # Регулярные выражения
-import re
+# import re
 
 # s = "Я ищу совпадения в 2021 году. И я их найду в 2 счё_та. [7895-1982] Ne w"
 # # reg = r'^\w+\s\w+'
@@ -3478,6 +3478,7 @@ import csv
 
 from bs4 import BeautifulSoup
 import requests
+import re
 
 
 # f = open('index.html').read()
@@ -3489,21 +3490,124 @@ import requests
 # print(row)
 
 
+# def get_html(url):
+#     rt = requests.get(url)
+#     return rt.text
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "html.parser")
+#     p1 = soup.find("header", id="masthead").find("p", class_="site-title").text
+#     return p1
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/"
+#     print(get_data(get_html(url)))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# def get_html(url):
+#     rt = requests.get(url)
+#     return rt.text
+#
+#
+# def refined(s):
+#     res = re.sub(r"\D+", "", s)
+#     return res
+#
+#
+# def write_csv(data):
+#     with open('plugins.csv', 'a') as f:
+#         writer = csv.writer(f, lineterminator="\r")
+#         writer.writerow((data['name'], data['url'], data['rating']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "html.parser")
+#     p1 = soup.find_all("section", class_="plugin-section")[1]
+#     plugins = p1.find_all('article')
+#     for plugin in plugins:
+#         name = plugin.find("h3").text
+#         url = plugin.find("h3").find("a").get('href')
+#         rating = plugin.find("span", class_="rating-count").find("a").text
+#         r = refined(rating)
+#         data = {'name': name, 'url': url, 'rating': r}
+#         write_csv(data)
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/plugins/"
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
 def get_html(url):
     rt = requests.get(url)
     return rt.text
 
 
+def refine_cy(s):
+    return s.split()[-1]
+
+
+def write_csv(data):
+    with open("plugins1.csv", "a") as f:
+        writer = csv.writer(f, lineterminator="\r")
+        writer.writerow((data['name'], data['url'], data['snippet'], data['active'], data['cy']))
+
+
 def get_data(html):
     soup = BeautifulSoup(html, "html.parser")
-    p1 = soup.find("header", id="masthead").find("p", class_="site-title").text
-    return p1
+    p1 = soup.find_all("article", class_="plugin-card")
+    for el in p1:
+        try:
+            name = el.find("h3").text
+        except ValueError:
+            name = ""
+
+        try:
+            url = el.find('h3').find('a').get('href')
+        except ValueError:
+            url = ""
+
+        try:
+            snippet = el.find('div', class_='entry-excerpt').text.strip()
+        except ValueError:
+            snippet = ""
+
+        try:
+            active = el.find('span', class_="active-installs").text.strip()
+        except ValueError:
+            active = ""
+
+        try:
+            c = el.find('span', class_="tested-with").text.strip()
+            cy = refine_cy(c)
+        except ValueError:
+            cy = ""
+
+        data = {
+            "name": name,
+            "url": url,
+            "snippet": snippet,
+            "active": active,
+            "cy": cy
+        }
+
+        write_csv(data)
 
 
 def main():
-    url = "https://ru.wordpress.org/"
-    print(get_data(get_html(url)))
+    for i in range(2, 5):
+        url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
+        get_data(get_html(url))
 
 
 if __name__ == '__main__':
     main()
+
