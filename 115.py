@@ -2630,7 +2630,7 @@
 
 
 # Регулярные выражения
-# import re
+import re
 
 # s = "Я ищу совпадения в 2021 году. И я их найду в 2 счё_та. [7895-1982] Ne w"
 # # reg = r'^\w+\s\w+'
@@ -3476,6 +3476,7 @@ import csv
 #     for d in data:
 #         writer.writerow(d)
 
+<<<<<<< HEAD
 # from bs4 import BeautifulSoup
 # import requests
 # import re
