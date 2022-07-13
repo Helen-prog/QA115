@@ -3476,138 +3476,138 @@ import csv
 #     for d in data:
 #         writer.writerow(d)
 
-from bs4 import BeautifulSoup
-import requests
-import re
-
-
-# f = open('index.html').read()
-# soup = BeautifulSoup(f, 'html.parser')
-# # row = soup.find_all("div", class_="name")
-# # row = soup.find("div", class_="name")
-# # row = soup.find("div", id="whois1")
-# row = soup.find_all("div", class_="row")[1].find("div", class_="name").text
-# print(row)
-
-
+# from bs4 import BeautifulSoup
+# import requests
+# import re
+#
+#
+# # f = open('index.html').read()
+# # soup = BeautifulSoup(f, 'html.parser')
+# # # row = soup.find_all("div", class_="name")
+# # # row = soup.find("div", class_="name")
+# # # row = soup.find("div", id="whois1")
+# # row = soup.find_all("div", class_="row")[1].find("div", class_="name").text
+# # print(row)
+#
+#
+# # def get_html(url):
+# #     rt = requests.get(url)
+# #     return rt.text
+# #
+# #
+# # def get_data(html):
+# #     soup = BeautifulSoup(html, "html.parser")
+# #     p1 = soup.find("header", id="masthead").find("p", class_="site-title").text
+# #     return p1
+# #
+# #
+# # def main():
+# #     url = "https://ru.wordpress.org/"
+# #     print(get_data(get_html(url)))
+# #
+# #
+# # if __name__ == '__main__':
+# #     main()
+#
+# # def get_html(url):
+# #     rt = requests.get(url)
+# #     return rt.text
+# #
+# #
+# # def refined(s):
+# #     res = re.sub(r"\D+", "", s)
+# #     return res
+# #
+# #
+# # def write_csv(data):
+# #     with open('plugins.csv', 'a') as f:
+# #         writer = csv.writer(f, lineterminator="\r")
+# #         writer.writerow((data['name'], data['url'], data['rating']))
+# #
+# #
+# # def get_data(html):
+# #     soup = BeautifulSoup(html, "html.parser")
+# #     p1 = soup.find_all("section", class_="plugin-section")[1]
+# #     plugins = p1.find_all('article')
+# #     for plugin in plugins:
+# #         name = plugin.find("h3").text
+# #         url = plugin.find("h3").find("a").get('href')
+# #         rating = plugin.find("span", class_="rating-count").find("a").text
+# #         r = refined(rating)
+# #         data = {'name': name, 'url': url, 'rating': r}
+# #         write_csv(data)
+# #
+# #
+# # def main():
+# #     url = "https://ru.wordpress.org/plugins/"
+# #     get_data(get_html(url))
+# #
+# #
+# # if __name__ == '__main__':
+# #     main()
+#
 # def get_html(url):
 #     rt = requests.get(url)
 #     return rt.text
 #
 #
-# def get_data(html):
-#     soup = BeautifulSoup(html, "html.parser")
-#     p1 = soup.find("header", id="masthead").find("p", class_="site-title").text
-#     return p1
-#
-#
-# def main():
-#     url = "https://ru.wordpress.org/"
-#     print(get_data(get_html(url)))
-#
-#
-# if __name__ == '__main__':
-#     main()
-
-# def get_html(url):
-#     rt = requests.get(url)
-#     return rt.text
-#
-#
-# def refined(s):
-#     res = re.sub(r"\D+", "", s)
-#     return res
+# def refine_cy(s):
+#     return s.split()[-1]
 #
 #
 # def write_csv(data):
-#     with open('plugins.csv', 'a') as f:
+#     with open("plugins1.csv", "a") as f:
 #         writer = csv.writer(f, lineterminator="\r")
-#         writer.writerow((data['name'], data['url'], data['rating']))
+#         writer.writerow((data['name'], data['url'], data['snippet'], data['active'], data['cy']))
 #
 #
 # def get_data(html):
 #     soup = BeautifulSoup(html, "html.parser")
-#     p1 = soup.find_all("section", class_="plugin-section")[1]
-#     plugins = p1.find_all('article')
-#     for plugin in plugins:
-#         name = plugin.find("h3").text
-#         url = plugin.find("h3").find("a").get('href')
-#         rating = plugin.find("span", class_="rating-count").find("a").text
-#         r = refined(rating)
-#         data = {'name': name, 'url': url, 'rating': r}
+#     p1 = soup.find_all("article", class_="plugin-card")
+#     for el in p1:
+#         try:
+#             name = el.find("h3").text
+#         except ValueError:
+#             name = ""
+#
+#         try:
+#             url = el.find('h3').find('a').get('href')
+#         except ValueError:
+#             url = ""
+#
+#         try:
+#             snippet = el.find('div', class_='entry-excerpt').text.strip()
+#         except ValueError:
+#             snippet = ""
+#
+#         try:
+#             active = el.find('span', class_="active-installs").text.strip()
+#         except ValueError:
+#             active = ""
+#
+#         try:
+#             c = el.find('span', class_="tested-with").text.strip()
+#             cy = refine_cy(c)
+#         except ValueError:
+#             cy = ""
+#
+#         data = {
+#             "name": name,
+#             "url": url,
+#             "snippet": snippet,
+#             "active": active,
+#             "cy": cy
+#         }
+#
 #         write_csv(data)
 #
 #
 # def main():
-#     url = "https://ru.wordpress.org/plugins/"
-#     get_data(get_html(url))
+#     for i in range(2, 5):
+#         url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
+#         get_data(get_html(url))
 #
 #
 # if __name__ == '__main__':
 #     main()
-
-def get_html(url):
-    rt = requests.get(url)
-    return rt.text
-
-
-def refine_cy(s):
-    return s.split()[-1]
-
-
-def write_csv(data):
-    with open("plugins1.csv", "a") as f:
-        writer = csv.writer(f, lineterminator="\r")
-        writer.writerow((data['name'], data['url'], data['snippet'], data['active'], data['cy']))
-
-
-def get_data(html):
-    soup = BeautifulSoup(html, "html.parser")
-    p1 = soup.find_all("article", class_="plugin-card")
-    for el in p1:
-        try:
-            name = el.find("h3").text
-        except ValueError:
-            name = ""
-
-        try:
-            url = el.find('h3').find('a').get('href')
-        except ValueError:
-            url = ""
-
-        try:
-            snippet = el.find('div', class_='entry-excerpt').text.strip()
-        except ValueError:
-            snippet = ""
-
-        try:
-            active = el.find('span', class_="active-installs").text.strip()
-        except ValueError:
-            active = ""
-
-        try:
-            c = el.find('span', class_="tested-with").text.strip()
-            cy = refine_cy(c)
-        except ValueError:
-            cy = ""
-
-        data = {
-            "name": name,
-            "url": url,
-            "snippet": snippet,
-            "active": active,
-            "cy": cy
-        }
-
-        write_csv(data)
-
-
-def main():
-    for i in range(2, 5):
-        url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
-        get_data(get_html(url))
-
-
-if __name__ == '__main__':
-    main()
 
